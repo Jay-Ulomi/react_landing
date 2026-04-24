@@ -196,14 +196,18 @@ button { font-family: 'DM Sans', sans-serif; }
 }
 @media (max-width: 960px) {
   .hero-layout { grid-template-columns: 1fr; }
-  .hero-left   { padding: 40px 32px; border-right: none; border-bottom: 1px solid var(--border); }
-  .hero-right  { min-height: 400px; }
+  .hero-left   {
+    padding: 40px 32px;
+    border-right: none; border-bottom: 1px solid var(--border);
+    justify-content: flex-start; gap: 28px;
+  }
+  .hero-right  { min-height: 360px; }
   /* Hide extra floating cards on tablet */
   .hero-card-extra { display: none !important; }
 }
 @media (max-width: 640px) {
   .hero-left  { padding: 32px 20px; }
-  .hero-right { min-height: 340px; }
+  .hero-right { min-height: 300px; }
   .hero-headline { font-size: clamp(56px, 14vw, 80px) !important; }
 }
 
