@@ -45,11 +45,12 @@ export default function Pricing() {
           {plans.map(p => {
             const price = annual ? p.yr : p.mo;
             return (
-              <div key={p.name} style={{
+              <div key={p.name} className="lift" style={{
                 background: p.popular ? 'var(--black)' : 'var(--white)',
                 border: `1px solid ${p.popular ? 'var(--black)' : 'var(--border)'}`,
                 borderRadius: 20, padding: '32px 28px',
                 display: 'flex', flexDirection: 'column', position: 'relative',
+                boxShadow: p.popular ? '0 24px 60px -24px rgba(245,80,10,0.45)' : 'none',
               }}>
                 {p.popular && (
                   <div style={{

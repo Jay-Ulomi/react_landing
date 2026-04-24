@@ -17,7 +17,7 @@ export default function HowItWorks() {
 
         <div className="steps-grid">
           {steps.map((s, i) => (
-            <div key={s.n} style={{
+            <div key={s.n} className="lift" style={{
               background: 'var(--white)', border: '1px solid var(--border)',
               borderRadius: 20, padding: '40px 32px', position: 'relative', overflow: 'hidden',
             }}>
