@@ -32,13 +32,13 @@ export default function Footer() {
               {['twitter', 'github', 'linkedin'].map(n => (
                 <a key={n} href="#" style={{
                   width: 32, height: 32, borderRadius: 8,
-                  background: 'rgba(255,255,255,0.04)',
+                  background: 'var(--bg-2)',
                   border: '1px solid var(--border)',
                   display: 'flex', alignItems: 'center', justifyContent: 'center',
                   color: 'var(--text-dim)',
                   transition: 'all 200ms',
                 }}
-                  onMouseEnter={e => { e.currentTarget.style.color = 'var(--indigo-bright)'; e.currentTarget.style.borderColor = 'rgba(154,216,114,0.35)'; }}
+                  onMouseEnter={e => { e.currentTarget.style.color = 'var(--primary)'; e.currentTarget.style.borderColor = 'var(--primary)'; }}
                   onMouseLeave={e => { e.currentTarget.style.color = 'var(--text-dim)'; e.currentTarget.style.borderColor = 'var(--border)'; }}
                 >
                   <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
