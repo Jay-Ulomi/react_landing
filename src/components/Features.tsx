@@ -75,7 +75,7 @@ const features = [
 
 export default function Features() {
   return (
-    <section id="features" className="section">
+    <section id="features" className="section" style={{ borderTop: "1px solid var(--border)" }}>
       <div className="container">
         <div style={{ textAlign: 'center', marginBottom: 64, maxWidth: 680, margin: '0 auto 64px' }}>
           <div className="section-eyebrow">

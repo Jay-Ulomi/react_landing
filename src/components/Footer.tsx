@@ -8,7 +8,6 @@ const links = {
 export default function Footer() {
   return (
     <footer style={{
-      background: 'var(--bg-2)',
       borderTop: '1px solid var(--border)',
       padding: '64px 0 32px',
     }}>
@@ -22,13 +21,12 @@ export default function Footer() {
             <a href="#" style={{ display: 'flex', alignItems: 'center', gap: 10, marginBottom: 16 }}>
               <div style={{
                 width: 28, height: 28, borderRadius: 7,
-                background: 'linear-gradient(135deg, var(--indigo-bright), var(--indigo-deep))',
-                boxShadow: '0 0 12px var(--indigo-glow)',
+                background: 'var(--orange)',
               }} />
               <span style={{ fontFamily: 'Space Grotesk, sans-serif', fontWeight: 600, fontSize: 16 }}>NexPOS</span>
             </a>
             <p style={{ fontSize: 13, color: 'var(--text-dim)', lineHeight: 1.65, maxWidth: 260, marginBottom: 20 }}>
-              The operating system for modern commerce. Built in Lagos, used across Africa.
+              All-in-one POS, inventory & accounting — built for African businesses.
             </p>
             <div style={{ display: 'flex', gap: 8 }}>
               {['twitter', 'github', 'linkedin'].map(n => (

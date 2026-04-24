@@ -55,7 +55,7 @@ export default function Pricing() {
                   border: 'none',
                   cursor: 'pointer',
                   fontSize: 13, fontWeight: 500,
-                  background: annual === opt.k ? 'var(--indigo)' : 'transparent',
+                  background: annual === opt.k ? 'var(--orange)' : 'transparent',
                   color: annual === opt.k ? '#fff' : 'var(--text-dim)',
                   transition: 'all 200ms',
                   display: 'inline-flex', alignItems: 'center', gap: 8,

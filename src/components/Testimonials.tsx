@@ -18,7 +18,7 @@ const reviews = [
 
 export default function Testimonials() {
   return (
-    <section id="reviews" className="section" style={{ background: 'var(--bg-2)' }}>
+    <section id="reviews" className="section" style={{ borderTop: '1px solid var(--border)' }}>
       <div className="container">
         <div style={{ display: 'flex', alignItems: 'flex-end', justifyContent: 'space-between', flexWrap: 'wrap', gap: 24, marginBottom: 56 }}>
           <div>
@@ -27,7 +27,7 @@ export default function Testimonials() {
           </div>
           <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
             {[1,2,3,4,5].map(i => (
-              <svg key={i} width="18" height="18" viewBox="0 0 24 24" fill="var(--indigo-bright)">
+              <svg key={i} width="18" height="18" viewBox="0 0 24 24" fill="var(--yellow)">
                 <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
               </svg>
             ))}
@@ -63,7 +63,7 @@ export default function Testimonials() {
               <div style={{ display: 'flex', alignItems: 'center', gap: 12 }}>
                 <div style={{
                   width: 38, height: 38, borderRadius: '50%',
-                  background: 'linear-gradient(135deg, var(--indigo-bright), var(--indigo-deep))',
+                  background: 'var(--orange)',
                   display: 'flex', alignItems: 'center', justifyContent: 'center',
                   fontFamily: 'Space Grotesk, sans-serif', fontWeight: 600, fontSize: 14, color: '#fff',
                 }}>{r.name[0]}</div>
