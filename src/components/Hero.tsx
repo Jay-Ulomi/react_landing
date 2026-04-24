@@ -1,292 +1,264 @@
 export default function Hero() {
   return (
-    <div className="hero-layout">
+    <section style={{ position: 'relative', overflow: 'hidden', paddingTop: 80, paddingBottom: 120 }}>
+      {/* Background grid */}
+      <div className="grid-bg grid-bg-mask" style={{
+        position: 'absolute', inset: 0, zIndex: 0,
+      }} />
 
-      {/* LEFT — text */}
-      <div className="hero-left">
-        <div>
-          {/* Badge */}
-          <div className="badge" style={{ marginBottom: 28 }}>
-            <div style={{ width: 24, height: 24, borderRadius: '50%', background: 'var(--orange)', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0 }}>
-              <svg width="12" height="12" viewBox="0 0 24 24" fill="#fff" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-            </div>
-            <span style={{ fontWeight: 700 }}>500+ businesses</span>
-            <span style={{ color: 'var(--subtle)' }}>·</span>
-            <a href="#reviews" style={{ color: 'var(--orange)', fontWeight: 600, textDecoration: 'underline', textUnderlineOffset: 3 }}>Read stories</a>
-          </div>
+      {/* Indigo glow */}
+      <div style={{
+        position: 'absolute', top: '-10%', left: '50%', transform: 'translateX(-50%)',
+        width: 800, height: 600,
+        background: 'radial-gradient(ellipse, rgba(99,102,241,0.25) 0%, transparent 65%)',
+        filter: 'blur(40px)', zIndex: 0, pointerEvents: 'none',
+      }} />
 
-          {/* Headline */}
-          <h1 className="hero-headline" style={{
-            fontFamily: 'Syne, sans-serif', fontWeight: 800,
-            fontSize: 'clamp(64px, 8.5vw, 116px)',
-            lineHeight: 0.9, letterSpacing: '-0.04em',
-            color: 'var(--black)', marginBottom: 28,
-          }}>
-            Sell<br/>
-            More<span style={{ color: 'var(--orange)' }}>+</span>
-          </h1>
-
-          <div className="divider" style={{ marginBottom: 22 }} />
-
-          <p style={{ fontSize: 'clamp(14px, 1.5vw, 16px)', lineHeight: 1.7, color: 'var(--muted)', maxWidth: 420, marginBottom: 24 }}>
-            All-in-one POS, inventory & accounting for African businesses — works online and fully offline.
-          </p>
-
-          {/* Social proof */}
-          <div style={{ display: 'flex', alignItems: 'center', gap: 14, marginBottom: 32, paddingBottom: 28, borderBottom: '1px solid var(--border)', flexWrap: 'wrap' }}>
-            <div style={{ display: 'flex' }}>
-              {['#F5A623','#F5500A','#18A058'].map((c,i) => (
-                <div key={c} style={{
-                  width: 30, height: 30, borderRadius: '50%', background: c,
-                  border: '2px solid #fff', marginLeft: i > 0 ? -9 : 0,
-                  display: 'flex', alignItems: 'center', justifyContent: 'center',
-                  fontFamily: 'Syne, sans-serif', fontWeight: 800, fontSize: 11, color: '#fff', flexShrink: 0,
-                }}>{['A','F','C'][i]}</div>
-              ))}
-            </div>
-            <span style={{ fontSize: 13, color: 'var(--muted)' }}>
-              Loved by owners
-              <span style={{ margin: '0 8px', color: 'var(--border)' }}>/</span>
-              <svg width="11" height="11" viewBox="0 0 24 24" fill="#F5A623" style={{ verticalAlign: 'middle', marginRight: 3 }} aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-              <strong style={{ color: 'var(--black)' }}>4.9</strong>
-            </span>
-          </div>
-        </div>
-
-        {/* CTAs */}
-        <div style={{ display: 'flex', alignItems: 'center', gap: 20, flexWrap: 'wrap' }}>
-          <a href="#pricing" className="btn-dark">Start Free — 14 days</a>
-          <a href="#pricing" style={{ display: 'flex', alignItems: 'center', gap: 6, fontSize: 14, fontWeight: 600, color: 'var(--text)', whiteSpace: 'nowrap' }}>
-            Our Pricing
-            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" aria-hidden="true"><path d="M7 17L17 7M17 7H7M17 7v10"/></svg>
+      <div className="container" style={{ position: 'relative', zIndex: 1, textAlign: 'center' }}>
+        {/* Eyebrow */}
+        <div className="reveal" style={{ display: 'flex', justifyContent: 'center', marginBottom: 28 }}>
+          <a href="#" className="badge" style={{ fontSize: 13 }}>
+            <span className="badge-dot" />
+            <span style={{ color: 'var(--text)' }}>New</span>
+            <span style={{ color: 'var(--text-muted)' }}>·</span>
+            <span>Offline mode v2 is here</span>
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round"><path d="M9 18l6-6-6-6"/></svg>
           </a>
         </div>
+
+        {/* Headline */}
+        <h1 className="reveal reveal-1" style={{
+          fontSize: 'clamp(48px, 8vw, 96px)',
+          lineHeight: 1.02,
+          letterSpacing: '-0.04em',
+          fontWeight: 600,
+          marginBottom: 24,
+          maxWidth: 960, margin: '0 auto 24px',
+        }}>
+          The operating system<br />
+          for <span className="text-gradient">modern commerce</span>.
+        </h1>
+
+        {/* Subhead */}
+        <p className="reveal reveal-2" style={{
+          fontSize: 'clamp(16px, 1.6vw, 19px)',
+          color: 'var(--text-dim)',
+          maxWidth: 620, margin: '0 auto 40px',
+          lineHeight: 1.55,
+        }}>
+          POS, inventory, and accounting unified in one beautifully fast platform.
+          Built for African businesses — works fully offline.
+        </p>
+
+        {/* CTAs */}
+        <div className="reveal reveal-3" style={{
+          display: 'flex', gap: 12, justifyContent: 'center', flexWrap: 'wrap', marginBottom: 64,
+        }}>
+          <a href="#pricing" className="btn btn-primary" style={{ padding: '13px 24px', fontSize: 15 }}>
+            Start free trial
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </a>
+          <a href="#features" className="btn btn-ghost" style={{ padding: '13px 22px', fontSize: 15 }}>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+            Watch demo
+          </a>
+        </div>
+
+        {/* Dashboard mockup */}
+        <div className="reveal reveal-3" style={{ position: 'relative', maxWidth: 1080, margin: '0 auto' }}>
+          {/* Glow */}
+          <div style={{
+            position: 'absolute', inset: '-40px -20px',
+            background: 'radial-gradient(ellipse at center, rgba(99,102,241,0.35), transparent 70%)',
+            filter: 'blur(40px)', zIndex: -1,
+          }} />
+
+          <div style={{
+            background: 'linear-gradient(180deg, rgba(255,255,255,0.06), rgba(255,255,255,0.02))',
+            border: '1px solid var(--border-strong)',
+            borderRadius: 16,
+            padding: 8,
+            backdropFilter: 'blur(20px)',
+            boxShadow: '0 40px 80px -20px rgba(0,0,0,0.6), inset 0 0 0 1px rgba(255,255,255,0.04)',
+          }}>
+            <DashboardMockup />
+          </div>
+
+          {/* Floating chips */}
+          <div className="float-slow card" style={{
+            position: 'absolute', top: 60, left: -40, padding: '10px 14px',
+            display: 'flex', alignItems: 'center', gap: 10,
+            background: 'rgba(15,15,46,0.9)',
+          }}>
+            <div className="pulse-ring" style={{ width: 8, height: 8, borderRadius: '50%', background: 'var(--green)' }} />
+            <div>
+              <div style={{ fontSize: 12, fontWeight: 600 }}>Payment received</div>
+              <div style={{ fontSize: 11, color: 'var(--text-muted)' }}>₦28,703 · Transfer</div>
+            </div>
+          </div>
+
+          <div className="float-fast card" style={{
+            position: 'absolute', bottom: 40, right: -32, padding: '10px 14px',
+            background: 'rgba(15,15,46,0.9)',
+          }}>
+            <div style={{ fontFamily: 'JetBrains Mono, monospace', fontSize: 10, color: 'var(--text-muted)', marginBottom: 2 }}>SALES TODAY</div>
+            <div style={{ fontFamily: 'Space Grotesk, sans-serif', fontWeight: 600, fontSize: 22, letterSpacing: '-0.02em' }}>
+              ₦482,910
+            </div>
+            <div style={{ fontSize: 11, color: 'var(--green)', fontWeight: 500 }}>↑ 24% vs yesterday</div>
+          </div>
+        </div>
+
+        {/* Trust strip */}
+        <div style={{
+          marginTop: 56,
+          display: 'flex', alignItems: 'center', justifyContent: 'center',
+          gap: 16, flexWrap: 'wrap', color: 'var(--text-muted)', fontSize: 13,
+        }}>
+          <span>Trusted by 500+ businesses</span>
+          <span style={{ width: 4, height: 4, borderRadius: '50%', background: 'var(--text-muted)' }} />
+          <span>SOC 2 Type II</span>
+          <span style={{ width: 4, height: 4, borderRadius: '50%', background: 'var(--text-muted)' }} />
+          <span>99.99% uptime</span>
+        </div>
       </div>
 
-      {/* RIGHT — device mockups */}
-      <div className="hero-right">
+      <style>{`
+        @media (max-width: 768px) {
+          .hero-float-card { display: none !important; }
+        }
+      `}</style>
+    </section>
+  );
+}
 
-        {/* ── Laptop mockup ── */}
-        <div className="float-b" style={{ position: 'relative', zIndex: 2, marginRight: 28 }}>
-          {/* Screen bezel */}
+function DashboardMockup() {
+  return (
+    <div style={{
+      background: '#0a0a1f',
+      borderRadius: 12,
+      overflow: 'hidden',
+      display: 'grid',
+      gridTemplateColumns: '180px 1fr',
+      minHeight: 400,
+      textAlign: 'left',
+    }}>
+      {/* Sidebar */}
+      <aside style={{
+        background: '#07071a', borderRight: '1px solid var(--border)',
+        padding: '16px 12px', display: 'flex', flexDirection: 'column', gap: 4,
+      }}>
+        <div style={{ display: 'flex', alignItems: 'center', gap: 8, padding: '8px 10px', marginBottom: 12 }}>
           <div style={{
-            background: '#1C1C1E', borderRadius: '14px 14px 0 0',
-            padding: '8px 8px 0 8px',
-            boxShadow: '0 24px 64px rgba(0,0,0,0.28), 0 6px 16px rgba(0,0,0,0.14)',
-          }}>
-            {/* App window */}
-            <div style={{ background: '#fff', borderRadius: '8px 8px 0 0', overflow: 'hidden', width: 320 }}>
-              {/* Window chrome */}
-              <div style={{ background: '#1A1A1A', padding: '7px 10px', display: 'flex', alignItems: 'center', gap: 5 }}>
-                {['#FF5F57','#FFBD2E','#28CA41'].map(c => (
-                  <div key={c} style={{ width: 7, height: 7, borderRadius: '50%', background: c }} />
-                ))}
-                <div style={{ flex: 1, textAlign: 'center', fontSize: 9, color: 'rgba(255,255,255,0.35)', fontFamily: 'DM Sans, sans-serif', letterSpacing: '0.04em' }}>
-                  NexPOS — Ikeja Branch
-                </div>
-                <div className="live" style={{ width: 5, height: 5, borderRadius: '50%', background: '#28CA41' }} />
-              </div>
-
-              {/* App body */}
-              <div style={{ display: 'flex', height: 196 }}>
-                {/* Sidebar */}
-                <div style={{ width: 38, background: '#0D0D0D', display: 'flex', flexDirection: 'column', alignItems: 'center', paddingTop: 14, gap: 16 }}>
-                  {/* Logo mark */}
-                  <div style={{ width: 22, height: 22, borderRadius: 6, background: 'var(--orange)', display: 'flex', alignItems: 'center', justifyContent: 'center', marginBottom: 4 }}>
-                    <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#fff" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
-                  </div>
-                  {/* Nav icons */}
-                  {[
-                    <><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></>,
-                    <><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 01-8 0"/></>,
-                    <><path d="M20.59 13.41l-7.17 7.17a2 2 0 01-2.83 0L2 12V2h10l8.59 8.59a2 2 0 010 2.82z"/><line x1="7" y1="7" x2="7.01" y2="7"/></>,
-                    <><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></>,
-                  ].map((icon, i) => (
-                    <div key={i} style={{
-                      width: 28, height: 28, borderRadius: 7, display: 'flex', alignItems: 'center', justifyContent: 'center',
-                      background: i === 3 ? 'rgba(245,80,10,0.2)' : 'transparent',
-                    }}>
-                      <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke={i === 3 ? 'var(--orange)' : 'rgba(255,255,255,0.3)'} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-                        {icon}
-                      </svg>
-                    </div>
-                  ))}
-                </div>
-
-                {/* Main dashboard */}
-                <div style={{ flex: 1, background: '#F5F4F1', padding: 10, display: 'flex', flexDirection: 'column', gap: 8, overflow: 'hidden' }}>
-                  {/* Header */}
-                  <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-                    <div>
-                      <div style={{ fontSize: 9, fontWeight: 700, fontFamily: 'Syne, sans-serif', color: '#0D0D0D', letterSpacing: '-0.01em' }}>Dashboard</div>
-                      <div style={{ fontSize: 8, color: 'var(--muted)' }}>Thu 24 Apr · Ikeja HQ</div>
-                    </div>
-                    <div style={{ display: 'flex', alignItems: 'center', gap: 4 }}>
-                      <div style={{ width: 20, height: 20, borderRadius: '50%', background: 'var(--orange)', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-                        <span style={{ fontSize: 8, fontWeight: 800, color: '#fff', fontFamily: 'Syne, sans-serif' }}>J</span>
-                      </div>
-                    </div>
-                  </div>
-
-                  {/* Stat cards */}
-                  <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3,1fr)', gap: 5 }}>
-                    {[
-                      { l: 'Revenue', v: '₦482K', c: 'var(--orange)', up: '+24%' },
-                      { l: 'Orders', v: '47', c: 'var(--green)', up: '+8%' },
-                      { l: 'Live carts', v: '3', c: '#6366F1', up: '' },
-                    ].map(s => (
-                      <div key={s.l} style={{ background: '#fff', borderRadius: 7, padding: '6px 7px', border: '1px solid var(--border)' }}>
-                        <div style={{ fontSize: 7, color: 'var(--muted)', marginBottom: 2 }}>{s.l}</div>
-                        <div style={{ fontSize: 11, fontWeight: 800, fontFamily: 'Syne, sans-serif', color: '#0D0D0D', letterSpacing: '-0.03em' }}>{s.v}</div>
-                        {s.up && <div style={{ fontSize: 7, color: s.c, fontWeight: 600 }}>{s.up}</div>}
-                      </div>
-                    ))}
-                  </div>
-
-                  {/* Sales chart */}
-                  <div style={{ background: '#fff', borderRadius: 7, padding: '7px 8px', border: '1px solid var(--border)', flex: 1 }}>
-                    <div style={{ fontSize: 7, fontWeight: 700, color: 'var(--muted)', marginBottom: 6, letterSpacing: '0.05em', textTransform: 'uppercase' }}>Sales today</div>
-                    <div style={{ display: 'flex', alignItems: 'flex-end', gap: 4, height: 44 }}>
-                      {[28, 45, 32, 60, 78, 55, 88, 72, 95, 62].map((h, i) => (
-                        <div key={i} style={{
-                          flex: 1, background: i === 8 ? 'var(--orange)' : i === 9 ? 'rgba(245,80,10,0.3)' : 'var(--border)',
-                          borderRadius: '3px 3px 0 0', height: `${h}%`,
-                          minWidth: 0,
-                        }} />
-                      ))}
-                    </div>
-                  </div>
-
-                  {/* Last transactions */}
-                  <div style={{ display: 'flex', flexDirection: 'column', gap: 3 }}>
-                    {[
-                      { n: 'Indomie ×4, Milk ×2', v: '₦4,000', t: '2m ago' },
-                      { n: 'Cabin Biscuit ×6', v: '₦7,200', t: '9m ago' },
-                    ].map((tx, i) => (
-                      <div key={i} style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', background: '#fff', borderRadius: 6, padding: '5px 7px', border: '1px solid var(--border)' }}>
-                        <div>
-                          <div style={{ fontSize: 8, fontWeight: 600, color: '#0D0D0D' }}>{tx.n}</div>
-                          <div style={{ fontSize: 7, color: 'var(--muted)' }}>{tx.t}</div>
-                        </div>
-                        <div style={{ fontSize: 9, fontWeight: 800, fontFamily: 'Syne, sans-serif', color: 'var(--orange)' }}>{tx.v}</div>
-                      </div>
-                    ))}
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          {/* Keyboard base */}
-          <div style={{ background: '#2A2A2C', height: 14, borderRadius: '0 0 6px 6px', margin: '0 2px', display: 'flex', justifyContent: 'center', alignItems: 'flex-end', paddingBottom: 3 }}>
-            <div style={{ width: 56, height: 4, background: '#222', borderRadius: '2px 2px 0 0' }} />
-          </div>
-          <div style={{ height: 4, background: '#1A1A1A', borderRadius: '0 0 12px 12px', margin: '0 -8px' }} />
+            width: 22, height: 22, borderRadius: 6,
+            background: 'linear-gradient(135deg, var(--indigo-bright), var(--indigo-deep))',
+          }} />
+          <span style={{ fontFamily: 'Space Grotesk, sans-serif', fontWeight: 600, fontSize: 13 }}>NexPOS</span>
         </div>
+        {[
+          { l: 'Dashboard', a: true },
+          { l: 'Sales' },
+          { l: 'Inventory' },
+          { l: 'Customers' },
+          { l: 'Reports' },
+          { l: 'Settings' },
+        ].map(item => (
+          <div key={item.l} style={{
+            padding: '8px 10px',
+            borderRadius: 6,
+            fontSize: 12,
+            color: item.a ? 'var(--text)' : 'var(--text-muted)',
+            background: item.a ? 'rgba(99,102,241,0.12)' : 'transparent',
+            border: item.a ? '1px solid rgba(99,102,241,0.25)' : '1px solid transparent',
+          }}>{item.l}</div>
+        ))}
+      </aside>
 
-        {/* ── Phone mockup ── */}
-        <div className="float-c hero-card-extra" style={{
-          position: 'absolute', bottom: '7%', right: '6%', zIndex: 4,
-        }}>
-          {/* Phone frame */}
+      {/* Main */}
+      <main style={{ padding: 18, display: 'flex', flexDirection: 'column', gap: 14 }}>
+        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+          <div>
+            <div style={{ fontFamily: 'Space Grotesk, sans-serif', fontWeight: 600, fontSize: 16 }}>Good morning, Jide</div>
+            <div style={{ fontSize: 11, color: 'var(--text-muted)' }}>Thursday, 24 April · Ikeja HQ</div>
+          </div>
           <div style={{
-            background: '#1C1C1E', borderRadius: 28, padding: 6,
-            boxShadow: '0 20px 52px rgba(0,0,0,0.32), 0 4px 12px rgba(0,0,0,0.18)',
-            width: 118,
+            display: 'flex', alignItems: 'center', gap: 6,
+            padding: '5px 10px', borderRadius: 999,
+            background: 'rgba(16,185,129,0.1)', border: '1px solid rgba(16,185,129,0.25)',
+            fontSize: 11, color: 'var(--green)',
           }}>
-            {/* Screen */}
-            <div style={{ background: '#fff', borderRadius: 22, overflow: 'hidden' }}>
-              {/* Status bar */}
-              <div style={{ background: '#0D0D0D', padding: '6px 12px 4px', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-                <span style={{ fontSize: 7, fontWeight: 700, color: '#fff', fontFamily: 'DM Sans, sans-serif' }}>9:41</span>
-                <div style={{ display: 'flex', gap: 4, alignItems: 'center' }}>
-                  <svg width="9" height="7" viewBox="0 0 24 18" fill="#fff" aria-hidden="true"><path d="M1 9c3-6 19-6 22 0M5 13c2-4 12-4 14 0M9 17c1-2 5-2 6 0"/></svg>
-                  <svg width="10" height="7" viewBox="0 0 24 12" fill="none" stroke="#fff" strokeWidth="2" aria-hidden="true"><rect x="1" y="1" width="18" height="10" rx="2"/><path d="M23 4v4" strokeWidth="3" strokeLinecap="round"/><rect x="2" y="2" width="14" height="8" rx="1" fill="#fff"/></svg>
-                </div>
-              </div>
+            <span className="pulse-ring" style={{ width: 6, height: 6, borderRadius: '50%', background: 'var(--green)' }} />
+            Live
+          </div>
+        </div>
 
-              {/* App header */}
-              <div style={{ background: '#0D0D0D', padding: '8px 12px 10px', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-                <div>
-                  <div style={{ fontSize: 7, color: 'rgba(255,255,255,0.45)', marginBottom: 1 }}>Ikeja Branch</div>
-                  <div style={{ fontFamily: 'Syne, sans-serif', fontWeight: 800, fontSize: 12, color: '#fff', letterSpacing: '-0.02em' }}>New Sale</div>
-                </div>
-                <div style={{ width: 22, height: 22, borderRadius: 7, background: 'var(--orange)', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-                  <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#fff" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
-                </div>
-              </div>
-
-              {/* Cart items */}
-              <div style={{ padding: '8px 10px', background: '#F5F4F1', display: 'flex', flexDirection: 'column', gap: 4 }}>
-                {[
-                  { n: 'Indomie ×4', p: '₦1,600' },
-                  { n: 'Peak Milk ×2', p: '₦2,400' },
-                  { n: 'Cabin Biscuit', p: '₦1,200' },
-                ].map((item, i) => (
-                  <div key={i} style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', background: '#fff', borderRadius: 7, padding: '5px 7px', border: '1px solid var(--border)' }}>
-                    <span style={{ fontSize: 8, color: '#0D0D0D', fontWeight: 500 }}>{item.n}</span>
-                    <span style={{ fontSize: 8, fontWeight: 800, fontFamily: 'Syne, sans-serif' }}>{item.p}</span>
-                  </div>
-                ))}
-              </div>
-
-              {/* Total + button */}
-              <div style={{ padding: '6px 10px 10px', background: '#F5F4F1' }}>
-                <div style={{ background: 'var(--orange)', borderRadius: 8, padding: '7px 10px', display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 5 }}>
-                  <span style={{ fontSize: 8, fontWeight: 800, fontFamily: 'Syne, sans-serif', color: '#fff' }}>TOTAL</span>
-                  <span style={{ fontSize: 11, fontWeight: 800, fontFamily: 'Syne, sans-serif', color: '#fff' }}>₦5,200</span>
-                </div>
-                <div style={{ background: '#0D0D0D', borderRadius: 8, padding: '7px 10px', textAlign: 'center' }}>
-                  <span style={{ fontSize: 8, fontWeight: 800, fontFamily: 'Syne, sans-serif', color: '#fff', letterSpacing: '0.04em' }}>CHARGE ₦5,200</span>
-                </div>
-              </div>
+        {/* Stat cards */}
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 8 }}>
+          {[
+            { l: 'Revenue', v: '₦482K', d: '+24%', c: 'var(--green)' },
+            { l: 'Orders', v: '147', d: '+12%', c: 'var(--green)' },
+            { l: 'Avg ticket', v: '₦3,280', d: '+5%', c: 'var(--indigo-bright)' },
+          ].map(s => (
+            <div key={s.l} style={{
+              background: 'rgba(255,255,255,0.03)',
+              border: '1px solid var(--border)',
+              borderRadius: 10, padding: '10px 12px',
+            }}>
+              <div style={{ fontSize: 10, color: 'var(--text-muted)', marginBottom: 4, textTransform: 'uppercase', letterSpacing: '0.05em' }}>{s.l}</div>
+              <div style={{ fontFamily: 'Space Grotesk, sans-serif', fontWeight: 600, fontSize: 18, letterSpacing: '-0.02em' }}>{s.v}</div>
+              <div style={{ fontSize: 10, color: s.c, fontWeight: 500, marginTop: 2 }}>{s.d}</div>
             </div>
+          ))}
+        </div>
 
-            {/* Home indicator */}
-            <div style={{ height: 16, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-              <div style={{ width: 32, height: 4, background: 'rgba(255,255,255,0.3)', borderRadius: 2 }} />
+        {/* Chart */}
+        <div style={{
+          background: 'rgba(255,255,255,0.03)',
+          border: '1px solid var(--border)',
+          borderRadius: 10, padding: 14, flex: 1,
+          display: 'flex', flexDirection: 'column', gap: 10,
+        }}>
+          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+            <div style={{ fontSize: 11, fontWeight: 600 }}>Revenue · Last 14 days</div>
+            <div style={{ fontFamily: 'JetBrains Mono, monospace', fontSize: 10, color: 'var(--text-muted)' }}>+24.3%</div>
+          </div>
+          <div style={{ display: 'flex', alignItems: 'flex-end', gap: 5, height: 90 }}>
+            {[28, 42, 35, 58, 70, 55, 82, 68, 90, 76, 95, 88, 100, 92].map((h, i) => (
+              <div key={i} style={{
+                flex: 1,
+                background: i >= 12
+                  ? 'linear-gradient(180deg, var(--indigo-bright), var(--indigo-deep))'
+                  : 'rgba(99,102,241,0.2)',
+                borderRadius: '3px 3px 0 0',
+                height: `${h}%`,
+                boxShadow: i >= 12 ? '0 0 12px var(--indigo-glow)' : 'none',
+              }} />
+            ))}
+          </div>
+        </div>
+
+        {/* Recent transactions */}
+        <div style={{ display: 'flex', flexDirection: 'column', gap: 5 }}>
+          {[
+            { n: 'Order #4729', d: 'Indomie ×4, Milk ×2', v: '₦4,000' },
+            { n: 'Order #4728', d: 'Cabin Biscuit ×6', v: '₦7,200' },
+          ].map(tx => (
+            <div key={tx.n} style={{
+              display: 'flex', justifyContent: 'space-between', alignItems: 'center',
+              padding: '8px 12px',
+              background: 'rgba(255,255,255,0.02)',
+              border: '1px solid var(--border)',
+              borderRadius: 8,
+            }}>
+              <div>
+                <div style={{ fontSize: 11, fontWeight: 600 }}>{tx.n}</div>
+                <div style={{ fontSize: 10, color: 'var(--text-muted)' }}>{tx.d}</div>
+              </div>
+              <div style={{ fontFamily: 'Space Grotesk, sans-serif', fontWeight: 600, fontSize: 13, color: 'var(--indigo-bright)' }}>{tx.v}</div>
             </div>
-          </div>
+          ))}
         </div>
-
-        {/* Floating: payment confirmed */}
-        <div className="ui-card float-a hero-card-extra" style={{
-          position: 'absolute', top: '10%', left: '4%', zIndex: 5,
-          padding: '9px 13px', display: 'flex', alignItems: 'center', gap: 9,
-        }}>
-          <div style={{ width: 24, height: 24, borderRadius: 7, background: 'var(--orange)', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0 }}>
-            <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#fff" strokeWidth="3" aria-hidden="true"><path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7"/></svg>
-          </div>
-          <div>
-            <div style={{ fontSize: 11, fontWeight: 700, color: 'var(--black)', whiteSpace: 'nowrap' }}>Payment received</div>
-            <div style={{ fontSize: 10, color: 'var(--muted)' }}>₦28,703 · Transfer</div>
-          </div>
-        </div>
-
-        {/* Floating: low stock */}
-        <div className="ui-card float-c hero-card-extra" style={{
-          position: 'absolute', top: '30%', left: '2%', zIndex: 5,
-          padding: '9px 13px', display: 'flex', alignItems: 'center', gap: 9,
-        }}>
-          <div style={{ width: 24, height: 24, borderRadius: 7, background: 'var(--orange-light)', border: '1px solid rgba(245,80,10,0.2)', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0 }}>
-            <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="var(--orange)" strokeWidth="2.5" aria-hidden="true"><path strokeLinecap="round" strokeLinejoin="round" d="M12 9v4m0 4h.01M10.29 3.86L1.82 18a2 2 0 001.71 3h16.94a2 2 0 001.71-3L13.71 3.86a2 2 0 00-3.42 0z"/></svg>
-          </div>
-          <div>
-            <div style={{ fontSize: 11, fontWeight: 700, color: 'var(--black)', whiteSpace: 'nowrap' }}>Low stock alert</div>
-            <div style={{ fontSize: 10, color: 'var(--muted)' }}>Peak Milk — 8 left</div>
-          </div>
-        </div>
-
-        {/* Floating: stat badge — hidden on tablet */}
-        <div className="ui-card float-b hero-card-extra" style={{
-          position: 'absolute', top: '8%', right: '3%', zIndex: 5,
-          padding: '12px 16px', minWidth: 130,
-        }}>
-          <div style={{ fontSize: 9, fontWeight: 700, color: 'var(--muted)', letterSpacing: '0.08em', textTransform: 'uppercase', marginBottom: 3 }}>— UP TO</div>
-          <div style={{ fontFamily: 'Syne, sans-serif', fontWeight: 800, fontSize: 32, letterSpacing: '-0.04em', lineHeight: 1, color: 'var(--black)', marginBottom: 2 }}>60%</div>
-          <div style={{ fontSize: 11, color: 'var(--muted)', lineHeight: 1.4 }}>More sales<br />this month</div>
-        </div>
-
-      </div>
+      </main>
     </div>
   );
 }
