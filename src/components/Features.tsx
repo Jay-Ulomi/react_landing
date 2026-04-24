@@ -1,148 +1,93 @@
 const features = [
   {
-    num: '01', title: 'Fast POS Sales',
-    desc: 'Complete a sale in under 10 seconds. Barcode scanning, split payments, and receipts — fully offline, syncs the instant you reconnect.',
-    tags: ['Barcode Scanner', 'Offline Mode', 'Split Payment', 'PDF Receipts'],
-    visual: (
-      <div style={{ padding: '32px 28px' }}>
-        <div style={{ fontSize: 10, fontWeight: 700, color: 'var(--muted)', letterSpacing: '0.08em', textTransform: 'uppercase', marginBottom: 14 }}>Live Cart</div>
-        {[['Indomie Chicken (×4)', '₦1,600'], ['Peak Milk 400g (×2)', '₦2,400'], ['Cabin Biscuit (×1)', '₦1,200']].map(([n, p], i) => (
-          <div key={i} style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', padding: '9px 12px', borderRadius: 9, marginBottom: 5, background: 'var(--white)', border: '1px solid var(--border)' }}>
-            <span style={{ fontSize: 12, color: 'var(--text)' }}>{n}</span>
-            <span style={{ fontSize: 12, fontWeight: 700, fontFamily: 'Syne, sans-serif' }}>{p}</span>
-          </div>
-        ))}
-        <div style={{ marginTop: 10, display: 'flex', justifyContent: 'space-between', padding: '11px 12px', background: 'var(--orange)', borderRadius: 9, color: '#fff' }}>
-          <span style={{ fontFamily: 'Syne, sans-serif', fontWeight: 800, fontSize: 12 }}>TOTAL</span>
-          <span style={{ fontFamily: 'Syne, sans-serif', fontWeight: 800, fontSize: 16 }}>₦5,200</span>
-        </div>
-      </div>
+    icon: (
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+        <rect x="2" y="4" width="20" height="16" rx="2"/><path d="M2 10h20M6 16h4"/>
+      </svg>
     ),
+    title: 'Lightning POS',
+    desc: 'Sub-10s checkout. Barcode scanning, split payments, and offline-first sync.',
   },
   {
-    num: '02', title: 'Smart Inventory',
-    desc: 'Real-time stock levels across all branches. Automatic low-stock alerts with one-click reorder from your supplier list.',
-    tags: ['Auto Alerts', 'Multi-Branch', 'Supplier Orders'],
-    visual: (
-      <div style={{ padding: '32px 28px' }}>
-        <div style={{ fontSize: 10, fontWeight: 700, color: 'var(--muted)', letterSpacing: '0.08em', textTransform: 'uppercase', marginBottom: 14 }}>Stock Overview</div>
-        {[
-          { n: 'Indomie Chicken', p: 71, v: '142 units' },
-          { n: 'Peak Milk 400g',  p: 12, v: '12 units',  low: true },
-          { n: 'Milo 400g',       p: 10, v: '8 units',   low: true },
-          { n: 'Cabin Biscuit',   p: 59, v: '88 units' },
-        ].map((s, i) => (
-          <div key={i} style={{ marginBottom: 12 }}>
-            <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: 5 }}>
-              <span style={{ fontSize: 12, color: s.low ? '#D03030' : 'var(--text)', fontWeight: s.low ? 600 : 400 }}>{s.n}</span>
-              <span style={{ fontSize: 11, color: 'var(--muted)' }}>{s.v}</span>
-            </div>
-            <div style={{ height: 4, background: 'var(--border)', borderRadius: 4 }}>
-              <div style={{ height: '100%', width: `${s.p}%`, background: s.low ? '#D03030' : 'var(--orange)', borderRadius: 4 }} />
-            </div>
-          </div>
-        ))}
-      </div>
+    icon: (
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+        <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><path d="M3.27 6.96 12 12.01l8.73-5.05M12 22.08V12"/>
+      </svg>
     ),
+    title: 'Smart Inventory',
+    desc: 'Real-time multi-branch stock with auto-reorder and low-stock alerts.',
   },
   {
-    num: '03', title: 'Built-in Accounting',
-    desc: 'Full double-entry accounting with automated tax rules, reconciliation, and financial reports. No separate software needed.',
-    tags: ['Double-Entry', 'Tax Rules', 'P&L Reports', 'Reconciliation'],
-    visual: (
-      <div style={{ padding: '32px 28px' }}>
-        <div style={{ fontSize: 10, fontWeight: 700, color: 'var(--muted)', letterSpacing: '0.08em', textTransform: 'uppercase', marginBottom: 14 }}>This Month — P&L</div>
-        {[
-          { l: 'Revenue',       v: '₦4.2M',  p: 100, c: 'var(--green)' },
-          { l: 'Cost of Goods', v: '₦1.8M',  p: 43,  c: '#D03030' },
-          { l: 'Expenses',      v: '₦620K',  p: 15,  c: 'var(--muted)' },
-          { l: 'Net Profit',    v: '₦1.78M', p: 42,  c: 'var(--orange)' },
-        ].map((r, i) => (
-          <div key={i} style={{ marginBottom: 12 }}>
-            <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: 5 }}>
-              <span style={{ fontSize: 12, color: 'var(--muted)' }}>{r.l}</span>
-              <span style={{ fontSize: 12, fontWeight: 700, fontFamily: 'Syne, sans-serif', color: r.c }}>{r.v}</span>
-            </div>
-            <div style={{ height: 4, background: 'var(--border)', borderRadius: 4 }}>
-              <div style={{ height: '100%', width: `${r.p}%`, background: r.c, borderRadius: 4, opacity: 0.7 }} />
-            </div>
-          </div>
-        ))}
-      </div>
+    icon: (
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+        <path d="M3 3v18h18"/><path d="M7 14l4-4 4 4 5-5"/>
+      </svg>
     ),
+    title: 'Built-in Accounting',
+    desc: 'Double-entry books, automated tax, and one-click P&L statements.',
   },
   {
-    num: '04', title: 'Multi-Branch Management',
-    desc: 'Manage every store from one dashboard with branch-level isolation for staff, inventory, and reports.',
-    tags: ['Unlimited Branches', 'Staff Roles', 'Branch Reports'],
-    visual: (
-      <div style={{ padding: '32px 28px' }}>
-        <div style={{ fontSize: 10, fontWeight: 700, color: 'var(--muted)', letterSpacing: '0.08em', textTransform: 'uppercase', marginBottom: 14 }}>Branch Status</div>
-        {[
-          { n: 'Ikeja HQ',        s: '₦182K', on: true },
-          { n: 'Victoria Island', s: '₦241K', on: true },
-          { n: 'Lekki Phase 1',   s: '₦98K',  on: true },
-          { n: 'Surulere',        s: '—',     on: false },
-        ].map((b, i) => (
-          <div key={i} style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', padding: '9px 12px', borderRadius: 9, marginBottom: 5, background: 'var(--white)', border: '1px solid var(--border)' }}>
-            <div style={{ display: 'flex', alignItems: 'center', gap: 9 }}>
-              <div className={b.on ? 'live' : ''} style={{ width: 7, height: 7, borderRadius: '50%', background: b.on ? 'var(--green)' : 'var(--border)', flexShrink: 0 }} />
-              <span style={{ fontSize: 12, color: 'var(--text)', fontWeight: 500 }}>{b.n}</span>
-            </div>
-            <span style={{ fontSize: 12, fontWeight: 700, fontFamily: 'Syne, sans-serif', color: b.on ? 'var(--black)' : 'var(--muted)' }}>{b.s}</span>
-          </div>
-        ))}
-      </div>
+    icon: (
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+        <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/>
+      </svg>
     ),
+    title: 'Multi-Branch',
+    desc: 'Run unlimited locations from one console with branch-level permissions.',
+  },
+  {
+    icon: (
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+        <path d="M22 12h-4l-3 9L9 3l-3 9H2"/>
+      </svg>
+    ),
+    title: 'Offline-First',
+    desc: 'Keep selling without internet. Everything syncs the moment you reconnect.',
+  },
+  {
+    icon: (
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+        <rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/>
+      </svg>
+    ),
+    title: 'Bank-Grade Security',
+    desc: 'End-to-end encryption, role-based access, and SOC 2 Type II certified.',
   },
 ];
 
 export default function Features() {
   return (
-    <section id="features" style={{ background: 'var(--white)', padding: '80px 0' }}>
+    <section id="features" className="section">
       <div className="container">
-        {/* Header */}
-        <div style={{ display: 'grid', gridTemplateColumns: 'minmax(0,1fr) minmax(0,1fr)', gap: 40, alignItems: 'end', marginBottom: 48 }} className="feat-header-grid">
-          <div>
-            <div className="badge" style={{ marginBottom: 18 }}>Platform Features</div>
-            <h2 style={{ fontFamily: 'Syne, sans-serif', fontWeight: 800, fontSize: 'clamp(32px, 4vw, 52px)', letterSpacing: '-0.03em', color: 'var(--black)', lineHeight: 1.05 }}>
-              One platform.<br /><span style={{ color: 'var(--orange)' }}>Every tool.</span>
-            </h2>
-          </div>
-          <p style={{ fontSize: 15, color: 'var(--muted)', lineHeight: 1.75 }}>
-            From the checkout counter to the accounting books, NexPOS gives you everything to run a serious business.
+        <div style={{ textAlign: 'center', marginBottom: 64, maxWidth: 720, margin: '0 auto 64px' }}>
+          <div className="section-eyebrow"><span style={{ width: 6, height: 6, borderRadius: '50%', background: 'var(--indigo-bright)' }} /> Platform</div>
+          <h2 className="section-title">Everything you need.<br /><span className="text-gradient">Nothing you don't.</span></h2>
+          <p className="section-subtitle" style={{ margin: '0 auto' }}>
+            Six core modules, one unified platform. No plugins, no hidden fees, no limits.
           </p>
         </div>
 
-        {/* Feature rows */}
-        <div style={{ border: '1px solid var(--border)', borderRadius: 18, overflow: 'hidden' }}>
-          {features.map((f, i) => (
-            <div key={f.num} className="feat-row" style={{ borderBottom: i < features.length - 1 ? '1px solid var(--border)' : 'none' }}>
-              <div className={`feat-row-left ${i % 2 !== 0 ? 'feat-row-left-alt' : ''}`} style={{ order: i % 2 === 0 ? 0 : 1 }}>
-                <div style={{ fontFamily: 'Syne, sans-serif', fontWeight: 800, fontSize: 52, color: 'rgba(245,80,10,0.1)', lineHeight: 1, marginBottom: 14, letterSpacing: '-0.04em' }}>
-                  {f.num}
-                </div>
-                <h3 style={{ fontFamily: 'Syne, sans-serif', fontWeight: 700, fontSize: 'clamp(18px, 2vw, 22px)', color: 'var(--black)', marginBottom: 10, letterSpacing: '-0.02em' }}>
-                  {f.title}
-                </h3>
-                <p style={{ fontSize: 13, color: 'var(--muted)', lineHeight: 1.72, marginBottom: 18 }}>{f.desc}</p>
-                <div style={{ display: 'flex', flexWrap: 'wrap', gap: 6 }}>
-                  {f.tags.map(t => (
-                    <span key={t} style={{ fontSize: 11, fontWeight: 600, color: 'var(--muted)', background: 'var(--surface)', border: '1px solid var(--border)', padding: '4px 10px', borderRadius: 20 }}>{t}</span>
-                  ))}
-                </div>
+        <div style={{
+          display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: 16,
+        }}>
+          {features.map(f => (
+            <div key={f.title} className="card card-hover" style={{ padding: 28 }}>
+              <div style={{
+                width: 44, height: 44, borderRadius: 10,
+                background: 'linear-gradient(135deg, rgba(99,102,241,0.2), rgba(99,102,241,0.05))',
+                border: '1px solid rgba(99,102,241,0.25)',
+                display: 'flex', alignItems: 'center', justifyContent: 'center',
+                color: 'var(--indigo-bright)',
+                marginBottom: 20,
+              }}>
+                {f.icon}
               </div>
-              <div className={`feat-row-right ${i % 2 !== 0 ? 'feat-row-right-alt' : ''}`} style={{ order: i % 2 === 0 ? 1 : 0 }}>
-                {f.visual}
-              </div>
+              <h3 style={{ fontSize: 18, marginBottom: 8 }}>{f.title}</h3>
+              <p style={{ fontSize: 14, color: 'var(--text-dim)', lineHeight: 1.6 }}>{f.desc}</p>
             </div>
           ))}
         </div>
       </div>
-
-      <style>{`
-        @media (max-width: 768px) { .feat-header-grid { grid-template-columns: 1fr !important; gap: 16px !important; } }
-      `}</style>
     </section>
   );
 }
