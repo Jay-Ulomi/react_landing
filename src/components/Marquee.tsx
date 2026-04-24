@@ -1,50 +1,35 @@
-const items = [
-  'Retail Stores', 'Restaurants', 'Laundry', 'Pharmacy', 'Supermarkets',
-  'Boutiques', 'Fast Food', 'Electronics', 'Bakeries', 'Service Centers',
-  'Retail Stores', 'Restaurants', 'Laundry', 'Pharmacy', 'Supermarkets',
-  'Boutiques', 'Fast Food', 'Electronics', 'Bakeries', 'Service Centers',
+const logos = [
+  'Paystack', 'Flutterwave', 'GTBank', 'Access Bank', 'Interswitch',
+  'Moniepoint', 'Kuda', 'OPay', 'PalmPay', 'Carbon',
 ];
 
 export default function Marquee() {
+  const items = [...logos, ...logos];
   return (
-    <div
-      style={{
-        background: 'var(--white)',
-        borderTop: '1px solid var(--border)',
-        borderBottom: '1px solid var(--border)',
-        padding: '20px 0',
-        overflow: 'hidden',
-        position: 'relative',
-      }}
-    >
-      {/* Edge fades */}
-      <div
-        style={{
-          position: 'absolute', inset: 0, zIndex: 2, pointerEvents: 'none',
-          background:
-            'linear-gradient(to right, #fff 0%, rgba(255,255,255,0) 8%, rgba(255,255,255,0) 92%, #fff 100%)',
-        }}
-      />
-      <div className="marquee-track" style={{ position: 'relative', zIndex: 1 }}>
-        {items.map((item, i) => (
-          <span key={i} style={{ display: 'flex', alignItems: 'center', gap: 20, paddingRight: 20 }}>
-            <span
-              style={{
-                fontSize: 13, fontWeight: 600, color: 'var(--muted)',
-                letterSpacing: '0.04em', whiteSpace: 'nowrap', textTransform: 'uppercase',
-              }}
-            >
-              {item}
-            </span>
-            <span
-              style={{
-                width: 4, height: 4, borderRadius: '50%',
-                background: 'var(--orange)', opacity: 0.5, flexShrink: 0,
-              }}
-            />
-          </span>
-        ))}
+    <section style={{ padding: '48px 0', position: 'relative' }}>
+      <div className="container" style={{ marginBottom: 24 }}>
+        <p style={{
+          textAlign: 'center', fontSize: 13, color: 'var(--text-muted)',
+          fontFamily: 'JetBrains Mono, monospace', letterSpacing: '0.08em', textTransform: 'uppercase',
+        }}>
+          Integrates with the tools you already use
+        </p>
       </div>
-    </div>
+      <div style={{ position: 'relative', overflow: 'hidden', maskImage: 'linear-gradient(90deg, transparent, #000 10%, #000 90%, transparent)', WebkitMaskImage: 'linear-gradient(90deg, transparent, #000 10%, #000 90%, transparent)' }}>
+        <div className="marquee">
+          {items.map((l, i) => (
+            <div key={i} style={{
+              padding: '0 36px',
+              fontFamily: 'Space Grotesk, sans-serif',
+              fontWeight: 500, fontSize: 22,
+              color: 'var(--text-muted)',
+              whiteSpace: 'nowrap',
+              opacity: 0.7,
+              letterSpacing: '-0.01em',
+            }}>{l}</div>
+          ))}
+        </div>
+      </div>
+    </section>
   );
 }
