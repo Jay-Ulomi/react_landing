@@ -92,9 +92,13 @@ button { font-family: 'DM Sans', sans-serif; }
   background: var(--orange); color: #fff;
   font-family: 'Syne', sans-serif; font-weight: 700; font-size: 14px;
   padding: 13px 28px; border-radius: 10px; border: none; cursor: pointer;
-  transition: background 180ms, transform 160ms; text-decoration: none;
+  transition: background 180ms, transform 160ms, box-shadow 200ms; text-decoration: none;
+  box-shadow: 0 6px 20px -6px rgba(245,80,10,0.5);
 }
-.btn-orange:hover { background: #D94400; transform: translateY(-1px); }
+.btn-orange:hover {
+  background: #D94400; transform: translateY(-2px);
+  box-shadow: 0 12px 28px -8px rgba(245,80,10,0.6);
+}
 
 /* ── Badge ── */
 .badge {
