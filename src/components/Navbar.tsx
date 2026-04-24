@@ -16,7 +16,7 @@ export default function Navbar() {
     <header
       style={{
         position: 'sticky', top: 0, zIndex: 50,
-        background: scrolled ? 'rgba(7,7,26,0.7)' : 'transparent',
+        background: scrolled ? 'rgba(6,13,6,0.85)' : 'transparent',
         backdropFilter: scrolled ? 'blur(16px) saturate(180%)' : 'none',
         WebkitBackdropFilter: scrolled ? 'blur(16px) saturate(180%)' : 'none',
         borderBottom: scrolled ? '1px solid var(--border)' : '1px solid transparent',
@@ -31,8 +31,8 @@ export default function Navbar() {
         <a href="#" style={{ display: 'flex', alignItems: 'center', gap: 10 }}>
           <div style={{
             width: 30, height: 30, borderRadius: 8,
-            background: 'linear-gradient(135deg, var(--indigo-bright), var(--indigo-deep))',
-            boxShadow: '0 0 16px var(--indigo-glow), inset 0 0 0 1px rgba(255,255,255,0.15)',
+            background: 'var(--orange)',
+            boxShadow: '0 0 14px var(--orange-glow)',
             display: 'flex', alignItems: 'center', justifyContent: 'center',
           }}>
             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#fff" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">

@@ -6,7 +6,10 @@ const features = [
       </svg>
     ),
     title: 'Lightning POS',
-    desc: 'Sub-10s checkout. Barcode scanning, split payments, and offline-first sync.',
+    desc: 'Sub-10s checkout. Barcode scanning, split payments, offline-first sync.',
+    color: 'var(--orange)',
+    bg: 'rgba(255,160,46,0.1)',
+    border: 'rgba(255,160,46,0.2)',
   },
   {
     icon: (
@@ -16,6 +19,9 @@ const features = [
     ),
     title: 'Smart Inventory',
     desc: 'Real-time multi-branch stock with auto-reorder and low-stock alerts.',
+    color: 'var(--indigo-bright)',
+    bg: 'rgba(154,216,114,0.1)',
+    border: 'rgba(154,216,114,0.2)',
   },
   {
     icon: (
@@ -24,7 +30,10 @@ const features = [
       </svg>
     ),
     title: 'Built-in Accounting',
-    desc: 'Double-entry books, automated tax, and one-click P&L statements.',
+    desc: 'Double-entry books, automated tax, and one-click P&L reports.',
+    color: 'var(--orange)',
+    bg: 'rgba(255,160,46,0.1)',
+    border: 'rgba(255,160,46,0.2)',
   },
   {
     icon: (
@@ -34,6 +43,9 @@ const features = [
     ),
     title: 'Multi-Branch',
     desc: 'Run unlimited locations from one console with branch-level permissions.',
+    color: 'var(--indigo-bright)',
+    bg: 'rgba(154,216,114,0.1)',
+    border: 'rgba(154,216,114,0.2)',
   },
   {
     icon: (
@@ -41,8 +53,11 @@ const features = [
         <path d="M22 12h-4l-3 9L9 3l-3 9H2"/>
       </svg>
     ),
-    title: 'Offline-First',
-    desc: 'Keep selling without internet. Everything syncs the moment you reconnect.',
+    title: 'Works Offline',
+    desc: 'Keep selling without internet. Syncs automatically when you reconnect.',
+    color: 'var(--yellow)',
+    bg: 'rgba(255,239,145,0.1)',
+    border: 'rgba(255,239,145,0.2)',
   },
   {
     icon: (
@@ -50,8 +65,11 @@ const features = [
         <rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/>
       </svg>
     ),
-    title: 'Bank-Grade Security',
-    desc: 'End-to-end encryption, role-based access, and SOC 2 Type II certified.',
+    title: 'Staff & Security',
+    desc: 'Role-based access, audit logs, and PIN-protected cashier sessions.',
+    color: 'var(--yellow)',
+    bg: 'rgba(255,239,145,0.1)',
+    border: 'rgba(255,239,145,0.2)',
   },
 ];
 
@@ -59,31 +77,38 @@ export default function Features() {
   return (
     <section id="features" className="section">
       <div className="container">
-        <div style={{ textAlign: 'center', marginBottom: 64, maxWidth: 720, margin: '0 auto 64px' }}>
-          <div className="section-eyebrow"><span style={{ width: 6, height: 6, borderRadius: '50%', background: 'var(--indigo-bright)' }} /> Platform</div>
-          <h2 className="section-title">Everything you need.<br /><span className="text-gradient">Nothing you don't.</span></h2>
+        <div style={{ textAlign: 'center', marginBottom: 64, maxWidth: 680, margin: '0 auto 64px' }}>
+          <div className="section-eyebrow">
+            <span style={{ width: 6, height: 6, borderRadius: '50%', background: 'var(--orange)' }} />
+            What's inside
+          </div>
+          <h2 className="section-title">
+            Every tool your business needs.<br />
+            <span style={{ color: 'var(--indigo-bright)' }}>Nothing extra to buy.</span>
+          </h2>
           <p className="section-subtitle" style={{ margin: '0 auto' }}>
-            Six core modules, one unified platform. No plugins, no hidden fees, no limits.
+            Six modules, one platform. No plugins, no hidden fees.
           </p>
         </div>
 
         <div style={{
-          display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: 16,
+          display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: 14,
         }}>
           {features.map(f => (
             <div key={f.title} className="card card-hover" style={{ padding: 28 }}>
               <div style={{
-                width: 44, height: 44, borderRadius: 10,
-                background: 'linear-gradient(135deg, rgba(154,216,114,0.16), rgba(154,216,114,0.05))',
-                border: '1px solid rgba(154,216,114,0.22)',
+                width: 42, height: 42, borderRadius: 10,
+                background: f.bg,
+                border: `1px solid ${f.border}`,
                 display: 'flex', alignItems: 'center', justifyContent: 'center',
-                color: 'var(--indigo-bright)',
-                marginBottom: 20,
+                color: f.color,
+                marginBottom: 18,
+                flexShrink: 0,
               }}>
                 {f.icon}
               </div>
-              <h3 style={{ fontSize: 18, marginBottom: 8 }}>{f.title}</h3>
-              <p style={{ fontSize: 14, color: 'var(--text-dim)', lineHeight: 1.6 }}>{f.desc}</p>
+              <h3 style={{ fontSize: 17, marginBottom: 8, fontWeight: 600 }}>{f.title}</h3>
+              <p style={{ fontSize: 14, color: 'var(--text-dim)', lineHeight: 1.65 }}>{f.desc}</p>
             </div>
           ))}
         </div>
