@@ -28,7 +28,7 @@ export default function Testimonials() {
 
         <div className="review-grid">
           {reviews.map((r, i) => (
-            <div key={i} style={{ background: 'var(--white)', border: '1px solid var(--border)', borderRadius: 20, padding: '36px 32px', display: 'flex', flexDirection: 'column' }}>
+            <div key={i} className="lift" style={{ background: 'var(--white)', border: '1px solid var(--border)', borderRadius: 20, padding: '36px 32px', display: 'flex', flexDirection: 'column' }}>
               <div style={{ fontFamily: 'Georgia, serif', fontSize: 56, lineHeight: 0.6, color: 'var(--orange)', marginBottom: 20, opacity: 0.3, userSelect: 'none' }}>"</div>
               <p style={{ fontSize: 15, lineHeight: 1.75, color: 'var(--text)', flex: 1, marginBottom: 24, fontStyle: 'italic' }}>{r.quote}</p>
               <div style={{ display: 'inline-flex', alignItems: 'center', gap: 6, background: '#FFF0EA', border: '1px solid rgba(245,80,10,0.15)', borderRadius: 20, padding: '4px 12px', marginBottom: 20, alignSelf: 'flex-start' }}>
