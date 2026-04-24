@@ -40,7 +40,7 @@ export default function Footer() {
                   color: 'var(--text-dim)',
                   transition: 'all 200ms',
                 }}
-                  onMouseEnter={e => { e.currentTarget.style.color = 'var(--indigo-bright)'; e.currentTarget.style.borderColor = 'rgba(99,102,241,0.4)'; }}
+                  onMouseEnter={e => { e.currentTarget.style.color = 'var(--indigo-bright)'; e.currentTarget.style.borderColor = 'rgba(154,216,114,0.35)'; }}
                   onMouseLeave={e => { e.currentTarget.style.color = 'var(--text-dim)'; e.currentTarget.style.borderColor = 'var(--border)'; }}
                 >
                   <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">

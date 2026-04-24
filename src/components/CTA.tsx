@@ -6,15 +6,15 @@ export default function CTA() {
           position: 'relative', overflow: 'hidden',
           borderRadius: 24,
           padding: 'clamp(40px, 6vw, 72px)',
-          background: 'linear-gradient(135deg, rgba(99,102,241,0.18), rgba(15,15,46,0.6))',
-          border: '1px solid rgba(99,102,241,0.3)',
+          background: 'linear-gradient(135deg, rgba(154,216,114,0.14), rgba(6,13,6,0.8))',
+          border: '1px solid rgba(154,216,114,0.25)',
           textAlign: 'center',
         }}>
           {/* Glow */}
           <div style={{
             position: 'absolute', top: '-50%', left: '50%', transform: 'translateX(-50%)',
             width: '80%', height: '120%',
-            background: 'radial-gradient(ellipse, rgba(99,102,241,0.4), transparent 60%)',
+            background: 'radial-gradient(ellipse, rgba(154,216,114,0.35), transparent 60%)',
             filter: 'blur(50px)', pointerEvents: 'none',
           }} />
 
@@ -22,7 +22,7 @@ export default function CTA() {
           <div className="grid-bg" style={{ position: 'absolute', inset: 0, opacity: 0.3, pointerEvents: 'none' }} />
 
           <div style={{ position: 'relative', zIndex: 1 }}>
-            <div className="badge" style={{ marginBottom: 24, background: 'rgba(99,102,241,0.15)', borderColor: 'rgba(99,102,241,0.3)' }}>
+            <div className="badge" style={{ marginBottom: 24, background: 'rgba(99,102,241,0.15)', borderColor: 'rgba(154,216,114,0.25)' }}>
               <span className="badge-dot" />
               Limited time · 14 days free
             </div>

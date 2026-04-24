@@ -10,7 +10,7 @@ export default function Hero() {
       <div style={{
         position: 'absolute', top: '-10%', left: '50%', transform: 'translateX(-50%)',
         width: 800, height: 600,
-        background: 'radial-gradient(ellipse, rgba(99,102,241,0.25) 0%, transparent 65%)',
+        background: 'radial-gradient(ellipse, rgba(154,216,114,0.22) 0%, transparent 65%)',
         filter: 'blur(40px)', zIndex: 0, pointerEvents: 'none',
       }} />
 
@@ -69,7 +69,7 @@ export default function Hero() {
           {/* Glow */}
           <div style={{
             position: 'absolute', inset: '-40px -20px',
-            background: 'radial-gradient(ellipse at center, rgba(99,102,241,0.35), transparent 70%)',
+            background: 'radial-gradient(ellipse at center, rgba(154,216,114,0.30), transparent 70%)',
             filter: 'blur(40px)', zIndex: -1,
           }} />
 
@@ -88,7 +88,7 @@ export default function Hero() {
           <div className="float-slow card" style={{
             position: 'absolute', top: 60, left: -40, padding: '10px 14px',
             display: 'flex', alignItems: 'center', gap: 10,
-            background: 'rgba(15,15,46,0.9)',
+            background: 'rgba(6,13,6,0.92)',
           }}>
             <div className="pulse-ring" style={{ width: 8, height: 8, borderRadius: '50%', background: 'var(--green)' }} />
             <div>
@@ -99,7 +99,7 @@ export default function Hero() {
 
           <div className="float-fast card" style={{
             position: 'absolute', bottom: 40, right: -32, padding: '10px 14px',
-            background: 'rgba(15,15,46,0.9)',
+            background: 'rgba(6,13,6,0.92)',
           }}>
             <div style={{ fontFamily: 'JetBrains Mono, monospace', fontSize: 10, color: 'var(--text-muted)', marginBottom: 2 }}>SALES TODAY</div>
             <div style={{ fontFamily: 'Space Grotesk, sans-serif', fontWeight: 600, fontSize: 22, letterSpacing: '-0.02em' }}>
@@ -135,7 +135,7 @@ export default function Hero() {
 function DashboardMockup() {
   return (
     <div style={{
-      background: '#0a0a1f',
+      background: '#0a120a',
       borderRadius: 12,
       overflow: 'hidden',
       display: 'grid',
@@ -145,7 +145,7 @@ function DashboardMockup() {
     }}>
       {/* Sidebar */}
       <aside style={{
-        background: '#07071a', borderRight: '1px solid var(--border)',
+        background: '#060d06', borderRight: '1px solid var(--border)',
         padding: '16px 12px', display: 'flex', flexDirection: 'column', gap: 4,
       }}>
         <div style={{ display: 'flex', alignItems: 'center', gap: 8, padding: '8px 10px', marginBottom: 12 }}>
@@ -168,8 +168,8 @@ function DashboardMockup() {
             borderRadius: 6,
             fontSize: 12,
             color: item.a ? 'var(--text)' : 'var(--text-muted)',
-            background: item.a ? 'rgba(99,102,241,0.12)' : 'transparent',
-            border: item.a ? '1px solid rgba(99,102,241,0.25)' : '1px solid transparent',
+            background: item.a ? 'rgba(154,216,114,0.10)' : 'transparent',
+            border: item.a ? '1px solid rgba(154,216,114,0.22)' : '1px solid transparent',
           }}>{item.l}</div>
         ))}
       </aside>
@@ -228,7 +228,7 @@ function DashboardMockup() {
                 flex: 1,
                 background: i >= 12
                   ? 'linear-gradient(180deg, var(--indigo-bright), var(--indigo-deep))'
-                  : 'rgba(99,102,241,0.2)',
+                  : 'rgba(154,216,114,0.16)',
                 borderRadius: '3px 3px 0 0',
                 height: `${h}%`,
                 boxShadow: i >= 12 ? '0 0 12px var(--indigo-glow)' : 'none',

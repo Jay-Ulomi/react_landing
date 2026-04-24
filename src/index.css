@@ -2,33 +2,42 @@
 @import 'tailwindcss';
 
 :root {
-  /* Midnight Indigo palette */
-  --bg: #07071a;
-  --bg-2: #0a0a1f;
-  --surface: #0f0f2e;
-  --surface-2: #141432;
-  --elevated: #1a1a3e;
-  --border: rgba(255,255,255,0.08);
-  --border-strong: rgba(255,255,255,0.14);
+  /* ── Brand palette: #468432 · #9AD872 · #FFEF91 · #FFA02E ── */
+  --bg:      #060d06;
+  --bg-2:    #0a120a;
+  --surface: #0f1a0f;
+  --surface-2: #141f14;
+  --elevated:  #1a2a1a;
+  --border:       rgba(154,216,114,0.1);
+  --border-strong: rgba(154,216,114,0.22);
 
-  --text: #f1f1fa;
-  --text-dim: #a8a8c8;
-  --text-muted: #6e6e8f;
+  --text:     #eef5ec;
+  --text-dim: #a2bea0;
+  --text-muted: #6a8868;
 
-  --indigo: #6366f1;
-  --indigo-bright: #818cf8;
-  --indigo-deep: #4f46e5;
-  --indigo-glow: rgba(99,102,241,0.25);
+  /* Green — primary brand */
+  --indigo:        #468432;
+  --indigo-bright: #9AD872;
+  --indigo-deep:   #2d6020;
+  --indigo-glow:   rgba(154,216,114,0.22);
 
-  --accent-pink: #ec4899;
-  --accent-cyan: #22d3ee;
-  --green: #10b981;
+  /* Orange — CTA / action */
+  --orange:      #FFA02E;
+  --orange-glow: rgba(255,160,46,0.28);
+
+  /* Yellow — highlight */
+  --yellow:      #FFEF91;
+  --yellow-glow: rgba(255,239,145,0.2);
+
+  /* Aliases kept for components */
+  --accent-pink: #FFA02E;
+  --accent-cyan: #FFEF91;
+  --green:       #9AD872;
 
   --radius-sm: 8px;
-  --radius: 14px;
+  --radius:    14px;
   --radius-lg: 20px;
   --radius-xl: 28px;
-
   --container: 1200px;
 }
 
@@ -46,8 +55,8 @@ body {
   text-rendering: optimizeLegibility;
   overflow-x: hidden;
   background-image:
-    radial-gradient(ellipse 80% 50% at 20% -10%, rgba(99,102,241,0.18), transparent 50%),
-    radial-gradient(ellipse 60% 40% at 80% 0%, rgba(168,85,247,0.12), transparent 60%);
+    radial-gradient(ellipse 80% 50% at 20% -10%, rgba(70,132,50,0.22), transparent 50%),
+    radial-gradient(ellipse 60% 40% at 80% 0%,   rgba(154,216,114,0.1), transparent 60%);
 }
 
 h1, h2, h3, h4, h5 {
@@ -70,11 +79,11 @@ button { font-family: inherit; }
 }
 @media (max-width: 640px) { .container { padding: 0 20px; } }
 
-/* ── Grid background utility ── */
+/* ── Grid background ── */
 .grid-bg {
   background-image:
-    linear-gradient(rgba(255,255,255,0.04) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(255,255,255,0.04) 1px, transparent 1px);
+    linear-gradient(rgba(154,216,114,0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(154,216,114,0.05) 1px, transparent 1px);
   background-size: 56px 56px;
   background-position: center center;
 }
@@ -88,7 +97,7 @@ button { font-family: inherit; }
   display: inline-flex; align-items: center; justify-content: center;
   gap: 8px;
   font-family: 'DM Sans', sans-serif;
-  font-weight: 500;
+  font-weight: 600;
   font-size: 14px;
   padding: 11px 20px;
   border-radius: 10px;
@@ -99,23 +108,23 @@ button { font-family: inherit; }
   line-height: 1;
 }
 .btn-primary {
-  background: var(--indigo);
+  background: var(--orange);
   color: #fff;
-  box-shadow: 0 0 0 1px rgba(255,255,255,0.06) inset, 0 8px 24px -8px var(--indigo-glow);
+  box-shadow: 0 0 0 1px rgba(255,255,255,0.1) inset, 0 8px 24px -8px var(--orange-glow);
 }
 .btn-primary:hover {
-  background: var(--indigo-bright);
+  background: #e88f1a;
   transform: translateY(-1px);
-  box-shadow: 0 0 0 1px rgba(255,255,255,0.1) inset, 0 14px 32px -8px rgba(99,102,241,0.55);
+  box-shadow: 0 0 0 1px rgba(255,255,255,0.12) inset, 0 14px 32px -8px var(--orange-glow);
 }
 .btn-ghost {
-  background: rgba(255,255,255,0.03);
+  background: rgba(154,216,114,0.05);
   color: var(--text);
   border-color: var(--border);
   backdrop-filter: blur(8px);
 }
 .btn-ghost:hover {
-  background: rgba(255,255,255,0.06);
+  background: rgba(154,216,114,0.09);
   border-color: var(--border-strong);
 }
 .btn-link {
@@ -129,7 +138,7 @@ button { font-family: inherit; }
   padding: 6px 12px;
   font-size: 12px; font-weight: 500;
   color: var(--text-dim);
-  background: rgba(255,255,255,0.04);
+  background: rgba(154,216,114,0.06);
   border: 1px solid var(--border);
   border-radius: 999px;
   backdrop-filter: blur(8px);
@@ -137,12 +146,12 @@ button { font-family: inherit; }
 .badge-dot {
   width: 6px; height: 6px; border-radius: 50%;
   background: var(--indigo-bright);
-  box-shadow: 0 0 8px var(--indigo);
+  box-shadow: 0 0 8px var(--indigo-glow);
 }
 
 /* ── Card ── */
 .card {
-  background: linear-gradient(180deg, rgba(255,255,255,0.04), rgba(255,255,255,0.01));
+  background: linear-gradient(180deg, rgba(154,216,114,0.04), rgba(154,216,114,0.01));
   border: 1px solid var(--border);
   border-radius: var(--radius-lg);
   backdrop-filter: blur(12px);
@@ -153,7 +162,7 @@ button { font-family: inherit; }
 .card-hover:hover {
   transform: translateY(-3px);
   border-color: var(--border-strong);
-  background: linear-gradient(180deg, rgba(255,255,255,0.06), rgba(255,255,255,0.02));
+  background: linear-gradient(180deg, rgba(154,216,114,0.07), rgba(154,216,114,0.02));
 }
 
 /* ── Section ── */
@@ -184,7 +193,7 @@ button { font-family: inherit; }
 
 /* ── Gradient text ── */
 .text-gradient {
-  background: linear-gradient(135deg, var(--text) 0%, var(--indigo-bright) 60%, var(--accent-pink) 100%);
+  background: linear-gradient(135deg, var(--indigo-bright) 0%, var(--yellow) 50%, var(--orange) 100%);
   -webkit-background-clip: text;
           background-clip: text;
   color: transparent;
@@ -203,9 +212,9 @@ button { font-family: inherit; }
 
 /* ── Live pulse ── */
 @keyframes pulse-ring {
-  0%   { box-shadow: 0 0 0 0 rgba(16,185,129,0.5); }
-  70%  { box-shadow: 0 0 0 8px rgba(16,185,129,0); }
-  100% { box-shadow: 0 0 0 0 rgba(16,185,129,0); }
+  0%   { box-shadow: 0 0 0 0   rgba(154,216,114,0.5); }
+  70%  { box-shadow: 0 0 0 8px rgba(154,216,114,0); }
+  100% { box-shadow: 0 0 0 0   rgba(154,216,114,0); }
 }
 .pulse-ring { animation: pulse-ring 2s infinite; }
 
@@ -222,12 +231,12 @@ button { font-family: inherit; }
   from { opacity: 0; transform: translateY(20px); }
   to   { opacity: 1; transform: translateY(0); }
 }
-.reveal { animation: reveal 0.8s cubic-bezier(0.22, 1, 0.36, 1) both; }
+.reveal   { animation: reveal 0.8s cubic-bezier(0.22, 1, 0.36, 1) both; }
 .reveal-1 { animation-delay: 0.1s; }
 .reveal-2 { animation-delay: 0.2s; }
 .reveal-3 { animation-delay: 0.3s; }
 
-/* ── Glow underline link ── */
+/* ── Glow underline ── */
 .glow-link {
   position: relative;
   color: var(--indigo-bright);

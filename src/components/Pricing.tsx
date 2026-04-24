@@ -82,9 +82,9 @@ export default function Pricing() {
                 className="card card-hover"
                 style={{
                   padding: 32, position: 'relative',
-                  borderColor: p.popular ? 'rgba(99,102,241,0.4)' : 'var(--border)',
+                  borderColor: p.popular ? 'rgba(154,216,114,0.35)' : 'var(--border)',
                   background: p.popular
-                    ? 'linear-gradient(180deg, rgba(99,102,241,0.12), rgba(99,102,241,0.02))'
+                    ? 'linear-gradient(180deg, rgba(154,216,114,0.10), rgba(154,216,114,0.02))'
                     : 'linear-gradient(180deg, rgba(255,255,255,0.04), rgba(255,255,255,0.01))',
                   boxShadow: p.popular ? '0 24px 48px -16px var(--indigo-glow)' : 'none',
                 }}

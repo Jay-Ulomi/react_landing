@@ -74,8 +74,8 @@ export default function Features() {
             <div key={f.title} className="card card-hover" style={{ padding: 28 }}>
               <div style={{
                 width: 44, height: 44, borderRadius: 10,
-                background: 'linear-gradient(135deg, rgba(99,102,241,0.2), rgba(99,102,241,0.05))',
-                border: '1px solid rgba(99,102,241,0.25)',
+                background: 'linear-gradient(135deg, rgba(154,216,114,0.16), rgba(154,216,114,0.05))',
+                border: '1px solid rgba(154,216,114,0.22)',
                 display: 'flex', alignItems: 'center', justifyContent: 'center',
                 color: 'var(--indigo-bright)',
                 marginBottom: 20,
