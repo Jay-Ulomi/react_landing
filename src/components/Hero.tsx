@@ -184,7 +184,7 @@ export default function Hero() {
         </div>
 
         {/* ── Phone mockup ── */}
-        <div className="float-c" style={{
+        <div className="float-c hero-card-extra" style={{
           position: 'absolute', bottom: '7%', right: '6%', zIndex: 4,
         }}>
           {/* Phone frame */}
@@ -249,7 +249,7 @@ export default function Hero() {
         </div>
 
         {/* Floating: payment confirmed */}
-        <div className="ui-card float-a" style={{
+        <div className="ui-card float-a hero-card-extra" style={{
           position: 'absolute', top: '10%', left: '4%', zIndex: 5,
           padding: '9px 13px', display: 'flex', alignItems: 'center', gap: 9,
         }}>
@@ -263,7 +263,7 @@ export default function Hero() {
         </div>
 
         {/* Floating: low stock */}
-        <div className="ui-card float-c" style={{
+        <div className="ui-card float-c hero-card-extra" style={{
           position: 'absolute', top: '30%', left: '2%', zIndex: 5,
           padding: '9px 13px', display: 'flex', alignItems: 'center', gap: 9,
         }}>
