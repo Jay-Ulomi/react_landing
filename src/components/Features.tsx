@@ -27,7 +27,7 @@ const features = [
     icon: <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>,
     title: 'Works Offline',
     desc: 'Keep selling with no internet. Syncs everything the moment you reconnect.',
-    color: '#D4A000',
+    color: '#C8960C',
   },
   {
     icon: <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>,
@@ -41,32 +41,28 @@ export default function Features() {
   return (
     <section id="features" className="section" style={{ background: 'var(--bg-2)', borderTop: '1px solid var(--border)' }}>
       <div className="container">
-        {/* Header */}
         <div style={{ marginBottom: 56 }}>
           <span className="eyebrow">What's inside</span>
           <h2 className="section-title">Everything your business needs.</h2>
           <p className="section-subtitle">Six modules, one platform. No plugins, no hidden fees, no limits.</p>
         </div>
 
-        {/* Logistick-style numbered grid */}
         <div className="feat-grid">
           {features.map((f, i) => (
             <div key={f.title} className="feat-cell">
-              {/* Number — top right, muted */}
               <div style={{
                 position: 'absolute', top: 20, right: 24,
                 fontFamily: 'Space Grotesk, sans-serif', fontWeight: 700,
-                fontSize: 13, color: 'var(--border-strong)', letterSpacing: '-0.01em',
+                fontSize: 13, color: 'var(--border-strong)',
               }}>
                 {String(i + 1).padStart(2, '0')}
               </div>
 
-              {/* Icon in brand color */}
               <div style={{ color: f.color, marginBottom: 20 }}>
                 {f.icon}
               </div>
 
-              <h3 style={{ fontSize: 18, fontWeight: 700, color: 'var(--text)', marginBottom: 10 }}>
+              <h3 style={{ fontSize: 17, fontWeight: 700, color: 'var(--text)', marginBottom: 8 }}>
                 {f.title}
               </h3>
               <p style={{ fontSize: 14, color: 'var(--text-dim)', lineHeight: 1.65 }}>
@@ -79,3 +75,4 @@ export default function Features() {
     </section>
   );
 }
+

@@ -3,21 +3,21 @@ import { useState } from 'react';
 const plans = [
   {
     name: 'Starter',
-    mo: '₦5,000', yr: '₦3,750',
+    mo: 'TZS 5,000', yr: 'TZS 3,750',
     sub: '1 branch · 3 users',
     features: ['POS Sales', 'Basic Inventory', 'Expense Tracking', 'Email Support'],
     popular: false,
   },
   {
     name: 'Growth',
-    mo: '₦15,000', yr: '₦11,250',
+    mo: 'TZS 15,000', yr: 'TZS 11,250',
     sub: '3 branches · 10 users',
     features: ['Everything in Starter', 'Accounting Module', 'Supplier Management', 'Multi-Branch', 'Priority Support'],
     popular: true,
   },
   {
     name: 'Scale',
-    mo: '₦35,000', yr: '₦26,250',
+    mo: 'TZS 35,000', yr: 'TZS 26,250',
     sub: '10 branches · unlimited',
     features: ['Everything in Growth', 'Advanced Analytics', 'API Access', 'Phone Support', 'Custom Reports'],
     popular: false,

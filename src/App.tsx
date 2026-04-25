@@ -14,7 +14,7 @@ export default function App() {
       <Navbar />
       <main>
         <Hero />
-        <Marquee />
+<Marquee />
         <Features />
         <HowItWorks />
         <Pricing />

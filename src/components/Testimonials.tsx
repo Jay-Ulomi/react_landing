@@ -1,18 +1,24 @@
 const reviews = [
   {
-    quote: 'The offline mode saved us during a 6-hour outage. Sales never stopped — every transaction synced perfectly when power came back.',
-    name: 'Adebayo Oke', role: 'Owner, Oke Electronics · Lagos',
+    quote: 'The offline mode saved us during a 6-hour power outage. Sales never stopped — every transaction synced perfectly when power came back.',
+    name: 'Juma Mwangi', role: 'Owner, Mwangi Electronics · Dar es Salaam',
     metric: '4 branches',
+    accent: 'var(--orange)',
+    gradient: 'linear-gradient(135deg, rgba(255,160,46,0.08) 0%, transparent 60%)',
   },
   {
-    quote: "Replaced three separate tools — our POS, inventory tracker, and accountant's spreadsheets. Saving ₦180K every month.",
-    name: 'Fatimah Bello', role: 'Director, Bello Supermarkets · Abuja',
-    metric: '₦180K saved/mo',
+    quote: "Replaced three separate tools — our POS, inventory tracker, and accountant's spreadsheets. Saving TZS 180K every month.",
+    name: 'Amina Hassan', role: 'Director, Hassan Supermarkets · Arusha',
+    metric: 'TZS 180K saved/mo',
+    accent: 'var(--primary)',
+    gradient: 'linear-gradient(135deg, rgba(70,132,50,0.08) 0%, transparent 60%)',
   },
   {
     quote: 'Running 3 laundry outlets used to need a manager at each. Now I see everything from my phone before 6am.',
-    name: 'Chidi Nwosu', role: 'CEO, FreshClean Laundry · Port Harcourt',
+    name: 'Peter Kimaro', role: 'CEO, CleanFast Laundry · Mwanza',
     metric: '3 outlets, 1 view',
+    accent: '#C8960C',
+    gradient: 'linear-gradient(135deg, rgba(255,239,145,0.1) 0%, transparent 60%)',
   },
 ];
 
@@ -39,13 +45,15 @@ export default function Testimonials() {
         <div className="review-grid">
           {reviews.map((r, i) => (
             <div key={i} style={{
-              background: 'var(--bg)', border: '1px solid var(--border)', borderRadius: 16,
+              background: `var(--bg)`, border: '1px solid var(--border)', borderRadius: 16,
               padding: '36px 32px', display: 'flex', flexDirection: 'column', position: 'relative',
+              backgroundImage: r.gradient,
+              overflow: 'hidden',
             }}>
               {/* Large quote circle — Logistick style */}
               <div style={{
                 width: 52, height: 52, borderRadius: '50%',
-                background: 'var(--orange)',
+                background: r.accent,
                 display: 'flex', alignItems: 'center', justifyContent: 'center',
                 marginBottom: 24, flexShrink: 0,
               }}>

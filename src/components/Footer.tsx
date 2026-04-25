@@ -80,7 +80,7 @@ export default function Footer() {
           fontSize: 12, color: 'var(--text-muted)',
         }}>
           <span>© 2026 NexPOS Technologies Ltd.</span>
-          <span>Made with care in Lagos 🇳🇬</span>
+          <span>Made with care in Tanzania 🇹🇿</span>
         </div>
       </div>
 
