@@ -1,4 +1,4 @@
-const BASE_URL = import.meta.env.VITE_API_BASE_URL ?? 'http://192.168.0.121:8090'
+const BASE_URL = import.meta.env.VITE_API_BASE_URL ?? 'https://pos.chita.co.tz'
 
 export interface ApiEnvelope<T> {
   success: boolean

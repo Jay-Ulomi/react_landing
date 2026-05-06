@@ -24,7 +24,7 @@ const PERKS = [
   { icon: '✦', text: 'Cancel anytime, no questions' },
 ]
 
-const BUSINESS_ADMIN_URL = import.meta.env.VITE_BUSINESS_ADMIN_URL ?? 'http://192.168.0.121:5175'
+const BUSINESS_ADMIN_URL = import.meta.env.VITE_BUSINESS_ADMIN_URL ?? 'https://pos.chita.co.tz/app'
 
 export default function RegisterModal({ isOpen, onClose, preselectedPlanId, billingCycle = 'MONTHLY' }: Props) {
   const [step, setStep] = useState(1)
