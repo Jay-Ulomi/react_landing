@@ -1,27 +1,44 @@
-import Navbar from './components/Navbar';
-import Hero from './components/Hero';
-import Marquee from './components/Marquee';
-import Features from './components/Features';
-import HowItWorks from './components/HowItWorks';
-import Pricing from './components/Pricing';
-import Testimonials from './components/Testimonials';
-import CTA from './components/CTA';
-import Footer from './components/Footer';
+import Navbar from './components/Navbar'
+import Hero from './components/Hero'
+import Marquee from './components/Marquee'
+import Stats from './components/Stats'
+import Features from './components/Features'
+import HowItWorks from './components/HowItWorks'
+import Pricing from './components/Pricing'
+import Testimonials from './components/Testimonials'
+import CTA from './components/CTA'
+import Footer from './components/Footer'
 
 export default function App() {
   return (
     <div style={{ minHeight: '100vh', position: 'relative' }}>
       <Navbar />
       <main>
+        {/* Scene 1 — Dark hero */}
         <Hero />
-<Marquee />
+
+        {/* Scene 2 — Trust strip with edge-mask marquee */}
+        <Marquee />
+
+        {/* Scene 3 — Features grid (light) */}
         <Features />
+
+        {/* Scene 4 — How it works (white, split layout) */}
         <HowItWorks />
+
+        {/* Scene 5 — Pricing */}
         <Pricing />
+
+        {/* Scene 6 — Testimonials (soft gray) */}
         <Testimonials />
+
+        {/* Scene 7 — Stats band: final proof before CTA */}
+        <Stats />
+
+        {/* Scene 8 — CTA */}
         <CTA />
       </main>
       <Footer />
     </div>
-  );
+  )
 }

@@ -1,16 +1,20 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react'
+import RegisterModal from './RegisterModal'
 
-const links = ['Features', 'Pricing', 'Customers', 'About'];
+const links = ['Features', 'Pricing', 'Customers', 'About']
+
+const BUSINESS_ADMIN_URL = import.meta.env.VITE_BUSINESS_ADMIN_URL ?? 'http://192.168.0.121:5175'
 
 export default function Navbar() {
-  const [scrolled, setScrolled] = useState(false);
+  const [scrolled, setScrolled] = useState(false)
+  const [registerOpen, setRegisterOpen] = useState(false)
 
   useEffect(() => {
-    const fn = () => setScrolled(window.scrollY > 8);
-    fn();
-    window.addEventListener('scroll', fn, { passive: true });
-    return () => window.removeEventListener('scroll', fn);
-  }, []);
+    const fn = () => setScrolled(window.scrollY > 8)
+    fn()
+    window.addEventListener('scroll', fn, { passive: true })
+    return () => window.removeEventListener('scroll', fn)
+  }, [])
 
   return (
     <header className={`nav-root${scrolled ? ' scrolled' : ''}`}>
@@ -46,12 +50,19 @@ export default function Navbar() {
 
       {/* Actions */}
       <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
-        <a href="#" className="btn btn-link" style={{ fontSize: 14, padding: '10px 12px' }}>Sign in</a>
-        <a href="#pricing" className="btn btn-primary" style={{ fontSize: 14, padding: '10px 20px' }}>
+        <a href={BUSINESS_ADMIN_URL} className="btn btn-link" style={{ fontSize: 14, padding: '10px 12px' }}>Sign in</a>
+        <button
+          type="button"
+          onClick={() => setRegisterOpen(true)}
+          className="btn btn-primary"
+          style={{ fontSize: 14, padding: '10px 20px' }}
+        >
           Get Started
           <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-        </a>
+        </button>
       </div>
+
+      <RegisterModal isOpen={registerOpen} onClose={() => setRegisterOpen(false)} />
     </header>
-  );
+  )
 }

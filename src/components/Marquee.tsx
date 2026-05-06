@@ -44,26 +44,29 @@ function LogoBadge({ p }: { p: typeof providers[0] }) {
 export default function Marquee() {
   const items = [...providers, ...providers];
   return (
-    <section style={{ padding: '40px 0', background: 'var(--bg)', borderTop: '1px solid var(--border)', borderBottom: '1px solid var(--border)' }}>
-      <div className="container" style={{ marginBottom: 20 }}>
+    <section style={{
+      padding: '36px 0',
+      background: 'var(--bg)',
+      borderTop: '1px solid var(--border)',
+      borderBottom: '1px solid var(--border)',
+      position: 'relative', overflow: 'hidden',
+    }}>
+      {/* label */}
+      <div className="container" style={{ marginBottom: 18 }}>
         <p style={{
-          textAlign: 'center', fontSize: 12,
+          textAlign: 'center', fontSize: 11,
           color: 'var(--text-muted)',
           fontFamily: 'JetBrains Mono, monospace',
-          letterSpacing: '0.1em', textTransform: 'uppercase',
+          letterSpacing: '0.12em', textTransform: 'uppercase',
         }}>
           Integrates with Tanzania's top payment providers
         </p>
       </div>
-      <div style={{
-        position: 'relative', overflow: 'hidden',
-        maskImage: 'linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent)',
-        WebkitMaskImage: 'linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent)',
-      }}>
+
+      {/* edge-masked scroll track */}
+      <div className="edge-mask" style={{ overflow: 'hidden' }}>
         <div className="marquee" style={{ gap: 12 }}>
-          {items.map((p, i) => (
-            <LogoBadge key={i} p={p} />
-          ))}
+          {items.map((p, i) => <LogoBadge key={i} p={p} />)}
         </div>
       </div>
     </section>

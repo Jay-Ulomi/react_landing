@@ -27,8 +27,8 @@
 
   --green: #9AD872;
 
-  /* Hero dark bg */
-  --hero-bg: #0D1F0D;
+  /* Hero dark bg — aligned to primary for consistent branding */
+  --hero-bg: #468432;
 
   /* Aliases kept for component compatibility */
   --indigo:        #468432;
@@ -284,7 +284,7 @@ button { font-family: inherit; }
 .float-slow { animation: floatY 6s ease-in-out infinite; }
 .float-fast { animation: floatY 4.5s 0.5s ease-in-out infinite; }
 
-/* ── Reveal ── */
+/* ── Reveal (hero load animations, kept for hero) ── */
 @keyframes reveal {
   from { opacity: 0; transform: translateY(16px); }
   to   { opacity: 1; transform: translateY(0); }
@@ -294,7 +294,107 @@ button { font-family: inherit; }
 .reveal-2 { animation-delay: 0.18s; }
 .reveal-3 { animation-delay: 0.28s; }
 
-/* ── Reduced motion ── */
+/* ══════════════════════════════════════════════════
+   CINEMATIC SCROLL SYSTEM
+   All [data-reveal] elements start hidden.
+   When JS adds data-visible="true", CSS transitions play.
+   ══════════════════════════════════════════════════ */
+
+/* ── Base: slide up (default) ── */
+[data-reveal] {
+  opacity: 0;
+  transform: translateY(36px);
+  transition:
+    opacity  0.85s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 0.85s cubic-bezier(0.22, 1, 0.36, 1),
+    filter   0.85s cubic-bezier(0.22, 1, 0.36, 1);
+  will-change: opacity, transform;
+}
+[data-reveal][data-visible="true"] {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ── Slide from left ── */
+[data-reveal="left"] { transform: translateX(-48px) translateY(0); }
+[data-reveal="left"][data-visible="true"] { transform: translateX(0); }
+
+/* ── Slide from right ── */
+[data-reveal="right"] { transform: translateX(48px) translateY(0); }
+[data-reveal="right"][data-visible="true"] { transform: translateX(0); }
+
+/* ── Scale + rise ── */
+[data-reveal="scale"] { transform: scale(0.90) translateY(24px); }
+[data-reveal="scale"][data-visible="true"] { transform: scale(1) translateY(0); }
+
+/* ── Blur + rise ── */
+[data-reveal="blur"] {
+  opacity: 0;
+  filter: blur(10px);
+  transform: translateY(20px);
+}
+[data-reveal="blur"][data-visible="true"] {
+  opacity: 1;
+  filter: blur(0px);
+  transform: translateY(0);
+}
+
+/* ── Fade only ── */
+[data-reveal="fade"] { transform: none; }
+[data-reveal="fade"][data-visible="true"] { transform: none; }
+
+/* ── Stagger delays ── */
+[data-delay="1"] { transition-delay: 0.07s; }
+[data-delay="2"] { transition-delay: 0.14s; }
+[data-delay="3"] { transition-delay: 0.21s; }
+[data-delay="4"] { transition-delay: 0.28s; }
+[data-delay="5"] { transition-delay: 0.35s; }
+[data-delay="6"] { transition-delay: 0.42s; }
+[data-delay="7"] { transition-delay: 0.49s; }
+[data-delay="8"] { transition-delay: 0.56s; }
+
+/* ── Edge mask (used for marquee, etc.) ── */
+.edge-mask {
+  -webkit-mask-image: linear-gradient(
+    to right,
+    transparent 0%, black 8%,
+    black 92%, transparent 100%
+  );
+  mask-image: linear-gradient(
+    to right,
+    transparent 0%, black 8%,
+    black 92%, transparent 100%
+  );
+}
+
+/* ── Section blend helper: soft top fade ── */
+.blend-top::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 80px;
+  background: linear-gradient(to bottom, var(--bg), transparent);
+  z-index: 1; pointer-events: none;
+}
+.blend-bottom::after {
+  content: '';
+  position: absolute;
+  bottom: 0; left: 0; right: 0;
+  height: 80px;
+  background: linear-gradient(to top, var(--bg), transparent);
+  z-index: 1; pointer-events: none;
+}
+
+/* ── Reduced motion: show everything instantly ── */
 @media (prefers-reduced-motion: reduce) {
-  *, *::before, *::after { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; }
+  [data-reveal] {
+    opacity: 1 !important;
+    transform: none !important;
+    filter: none !important;
+    transition: none !important;
+  }
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
 }

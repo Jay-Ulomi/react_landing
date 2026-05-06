@@ -1,38 +1,54 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react'
+import { api, type Plan } from '../lib/api'
+import RegisterModal from './RegisterModal'
+import { useScrollReveal } from '../hooks/useScrollReveal'
 
-const plans = [
-  {
-    name: 'Starter',
-    mo: 'TZS 5,000', yr: 'TZS 3,750',
-    sub: '1 branch · 3 users',
-    features: ['POS Sales', 'Basic Inventory', 'Expense Tracking', 'Email Support'],
-    popular: false,
-  },
-  {
-    name: 'Growth',
-    mo: 'TZS 15,000', yr: 'TZS 11,250',
-    sub: '3 branches · 10 users',
-    features: ['Everything in Starter', 'Accounting Module', 'Supplier Management', 'Multi-Branch', 'Priority Support'],
-    popular: true,
-  },
-  {
-    name: 'Scale',
-    mo: 'TZS 35,000', yr: 'TZS 26,250',
-    sub: '10 branches · unlimited',
-    features: ['Everything in Growth', 'Advanced Analytics', 'API Access', 'Phone Support', 'Custom Reports'],
-    popular: false,
-  },
-];
+const FALLBACK_PLANS = [
+  { id: '', name: 'Starter', monthlyPrice: 5000, annualPrice: 3750, sub: '1 branch · 3 users', features: ['POS Sales', 'Basic Inventory', 'Expense Tracking', 'Email Support'], popular: false },
+  { id: '', name: 'Growth', monthlyPrice: 15000, annualPrice: 11250, sub: '3 branches · 10 users', features: ['Everything in Starter', 'Accounting Module', 'Supplier Management', 'Multi-Branch', 'Priority Support'], popular: true },
+  { id: '', name: 'Scale', monthlyPrice: 35000, annualPrice: 26250, sub: '10 branches · unlimited', features: ['Everything in Growth', 'Advanced Analytics', 'API Access', 'Phone Support', 'Custom Reports'], popular: false },
+]
+
+function formatPrice(price: number) {
+  return `TZS ${Number(price).toLocaleString()}`
+}
 
 export default function Pricing() {
-  const [annual, setAnnual] = useState(false);
+  const [annual, setAnnual] = useState(false)
+  const [plans, setPlans] = useState<Plan[]>([])
+  const [registerOpen, setRegisterOpen] = useState(false)
+  const [selectedPlanId, setSelectedPlanId] = useState('')
+  const sectionRef = useScrollReveal()
+
+  useEffect(() => {
+    api.getPlans()
+      .then(data => { if (data.length > 0) setPlans(data) })
+      .catch(() => {})
+  }, [])
+
+  const openRegister = (planId: string) => {
+    setSelectedPlanId(planId)
+    setRegisterOpen(true)
+  }
+
+  const displayPlans = plans.length > 0
+    ? plans.sort((a, b) => a.sortOrder - b.sortOrder).map((p, i) => ({
+        id: p.id,
+        name: p.name,
+        monthlyPrice: p.monthlyPrice,
+        annualPrice: p.annualPrice,
+        sub: `${p.maxBranches} branch${p.maxBranches !== 1 ? 'es' : ''} · ${p.maxUsers === -1 ? 'unlimited' : p.maxUsers} users`,
+        features: p.features.filter(f => f.isEnabled).map(f => f.featureName),
+        popular: i === 1,
+      }))
+    : FALLBACK_PLANS
 
   return (
-    <section id="pricing" className="section" style={{ borderTop: '1px solid var(--border)' }}>
+    <section id="pricing" className="section" ref={sectionRef as React.RefObject<HTMLElement>} style={{ borderTop: '1px solid var(--border)' }}>
       <div className="container">
         <div style={{ textAlign: 'center', marginBottom: 56 }}>
-          <span className="eyebrow">Pricing</span>
-          <h2 className="section-title">Plans that scale with you.</h2>
+          <span className="eyebrow" data-reveal>Pricing</span>
+          <h2 className="section-title" data-reveal data-delay="1">Plans that scale with you.</h2>
           <p className="section-subtitle" style={{ margin: '0 auto 28px' }}>
             Start free. Upgrade when you grow. Cancel anytime.
           </p>
@@ -48,6 +64,7 @@ export default function Pricing() {
             {[{ k: false, l: 'Monthly' }, { k: true, l: 'Annual' }].map(opt => (
               <button
                 key={opt.l}
+                type="button"
                 onClick={() => setAnnual(opt.k)}
                 style={{
                   padding: '8px 18px',
@@ -75,11 +92,13 @@ export default function Pricing() {
         </div>
 
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(260px, 1fr))', gap: 16 }}>
-          {plans.map(p => {
-            const price = annual ? p.yr : p.mo;
+          {displayPlans.map((p, idx) => {
+            const price = annual ? formatPrice(p.annualPrice) : formatPrice(p.monthlyPrice)
             return (
               <div
                 key={p.name}
+                data-reveal="scale"
+                data-delay={String(idx + 2)}
                 style={{
                   padding: 32, position: 'relative',
                   background: p.popular ? 'var(--primary)' : 'var(--bg)',
@@ -110,7 +129,7 @@ export default function Pricing() {
                   <div style={{ display: 'flex', alignItems: 'baseline', gap: 4, marginBottom: 6 }}>
                     <span style={{
                       fontFamily: 'Space Grotesk, sans-serif',
-                      fontWeight: 700, fontSize: 38, letterSpacing: '-0.03em',
+                      fontWeight: 700, fontSize: 34, letterSpacing: '-0.03em',
                       color: p.popular ? '#fff' : 'var(--text)',
                     }}>{price}</span>
                     <span style={{ fontSize: 13, color: p.popular ? 'rgba(255,255,255,0.6)' : 'var(--text-muted)' }}>/month</span>
@@ -137,8 +156,9 @@ export default function Pricing() {
                   ))}
                 </ul>
 
-                <a
-                  href="#"
+                <button
+                  type="button"
+                  onClick={() => openRegister(p.id)}
                   className="btn"
                   style={{
                     width: '100%', display: 'block', textAlign: 'center',
@@ -146,12 +166,13 @@ export default function Pricing() {
                     color: p.popular ? 'var(--primary)' : '#fff',
                     border: 'none',
                     fontWeight: 600,
+                    cursor: 'pointer',
                   }}
                 >
                   Get started
-                </a>
+                </button>
               </div>
-            );
+            )
           })}
         </div>
 
@@ -159,6 +180,13 @@ export default function Pricing() {
           14-day free trial on all plans · No credit card required
         </p>
       </div>
+
+      <RegisterModal
+        isOpen={registerOpen}
+        onClose={() => setRegisterOpen(false)}
+        preselectedPlanId={selectedPlanId}
+        billingCycle={annual ? 'ANNUAL' : 'MONTHLY'}
+      />
     </section>
-  );
+  )
 }
