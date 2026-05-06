@@ -6,6 +6,7 @@ import Features from './components/Features'
 import HowItWorks from './components/HowItWorks'
 import Pricing from './components/Pricing'
 import Testimonials from './components/Testimonials'
+import Download from './components/Download'
 import CTA from './components/CTA'
 import Footer from './components/Footer'
 
@@ -35,7 +36,10 @@ export default function App() {
         {/* Scene 7 — Stats band: final proof before CTA */}
         <Stats />
 
-        {/* Scene 8 — CTA */}
+        {/* Scene 8 — Download */}
+        <Download />
+
+        {/* Scene 9 — CTA */}
         <CTA />
       </main>
       <Footer />
