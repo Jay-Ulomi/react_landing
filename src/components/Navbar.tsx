@@ -3,7 +3,7 @@ import RegisterModal from './RegisterModal'
 
 const links = ['Features', 'Pricing', 'Customers', 'About']
 
-const BUSINESS_ADMIN_URL = import.meta.env.VITE_BUSINESS_ADMIN_URL ?? 'https://pos.chita.co.tz/app'
+const BUSINESS_ADMIN_URL = import.meta.env.VITE_BUSINESS_ADMIN_URL ?? 'https://pos.chita.co.tz/app/login'
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false)
